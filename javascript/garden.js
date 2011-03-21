@@ -9,7 +9,6 @@ Sections.prototype = {
     init: function(attribute) {
         this.heights = this.page.nav.find('ul').map(function(idx, ele) {
             return $(this).outerHeight();
-
         }).get();
 
         this.links = {
@@ -140,7 +139,8 @@ function Page() {
 
 Page.prototype = {
     init: function() {
-        var that = this;
+        var that = this,
+            mainNav = $('#nav_main');
 
         this.scrollLast = 0;
         this.window.scroll(function() {
@@ -155,18 +155,31 @@ Page.prototype = {
         that.sections.map();
         setTimeout(function() {
             that.sections.highlight();
-
         }, 10);
 
         // Mobile, for position: fixed
         if ($.mobile) {
-            $('#nav_mobile').css('position', 'absolute');
+            var navs = $('#nav_mobile, #nav_main');
+            navs.css('position', 'absolute');
             this.window.scroll(function(){
-                $('#nav_mobile').offset({
+                navs.offset({
                     top: that.window.scrollTop()
                 });
             });
         }
+        
+        // Show menu for tablets
+        $('#show_menu').click(function (){
+            var scrollTop = $.mobile ? that.window.scrollTop() : 0;
+            
+            mainNav.slideDown(300).css('top', scrollTop);
+            return false;
+        });
+        
+        $('#nav_main').click(function(){
+            if(that.window.width() < 1000)
+                mainNav.slideUp(300);
+        });
     },
 
     onScroll: function() {
@@ -183,8 +196,7 @@ Page.prototype = {
         this.resizeTimeout = setTimeout(function() {
             that.sections.map();
             that.sections.expand(that.section);
-
-        }, 50);
+        }, 100);
     }
 };
 
@@ -193,8 +205,7 @@ prettyPrint();
 
 // GA tracking code
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-20768522-1']);
-_gaq.push(['_trackPageview']);
+_gaq.push(['_setAccount', 'UA-20768522-1'], ['_trackPageview']);
 (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
