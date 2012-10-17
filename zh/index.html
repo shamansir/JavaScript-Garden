@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh"><head><title>JavaScript 秘密花园</title><meta charset="utf-8"><meta name="description" content="JavaScript 语言最古怪用法的文档集合"><link rel="stylesheet" href="../style/garden.css" media="all"><link rel="stylesheet" href="../style/print.css" media="print"><!--[if lt IE 9]>
 <script src="javascript/html5.js"></script>
 <![endif]-->
-</head><body><!-- Navigation--><nav id="nav_main"><div><ul><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li class="active"><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">简介</a></h1><ul><li><a href="#intro.authors">﻿关于作者</a></li><li><a href="#intro.contributors">﻿贡献者</a></li><li><a href="#intro.license">﻿许可</a></li></ul></li><li class="nav_object"><h1><a href="#object">对象</a></h1><ul><li><a href="#object.general">﻿对象使用和属性</a></li><li><a href="#object.prototype">﻿原型</a></li><li><a href="#object.hasownproperty">﻿<code>hasOwnProperty</code> 函数</a></li><li><a href="#object.forinloop">﻿<code>for in</code> 循环</a></li></ul></li><li class="nav_function"><h1><a href="#function">函数</a></h1><ul><li><a href="#function.general">﻿函数声明与表达式</a></li><li><a href="#function.this">﻿<code>this</code> 的工作原理</a></li><li><a href="#function.closures">﻿闭包和引用</a></li><li><a href="#function.arguments">﻿<code>arguments</code> 对象</a></li><li><a href="#function.constructors">﻿构造函数</a></li><li><a href="#function.scopes">﻿作用域与命名空间</a></li></ul></li><li class="nav_array"><h1><a href="#array">数组</a></h1><ul><li><a href="#array.general">﻿数组遍历与属性</a></li><li><a href="#array.constructor">﻿<code>Array</code> 构造函数</a></li></ul></li><li class="nav_types"><h1><a href="#types">类型</a></h1><ul><li><a href="#types.equality">﻿相等与比较</a></li><li><a href="#types.typeof">﻿<code>typeof</code> 操作符</a></li><li><a href="#types.instanceof">﻿<code>instanceof</code> 操作符</a></li><li><a href="#types.casting">﻿类型转换</a></li></ul></li><li class="nav_core"><h1><a href="#core">核心</a></h1><ul><li><a href="#core.eval">﻿为什么不要使用 <code>eval</code></a></li><li><a href="#core.undefined">﻿<code>undefined</code> 和 <code>null</code></a></li><li><a href="#core.semicolon">﻿自动分号插入</a></li></ul></li><li class="nav_other"><h1><a href="#other">其它</a></h1><ul><li><a href="#other.timeouts">﻿<code>setTimeout</code> 和 <code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>简介</h1><div><p><strong>JavaScript 秘密花园</strong>是一个不断更新，主要关心 JavaScript 一些古怪用法的文档。
+</head><body><!-- Navigation--><nav id="nav_main"><div><ul><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li class="active"><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">简介</a></h1><ul><li><a href="#intro.authors">关于作者</a></li><li><a href="#intro.contributors">贡献者</a></li><li><a href="#intro.license">许可</a></li></ul></li><li class="nav_object"><h1><a href="#object">对象</a></h1><ul><li><a href="#object.general">对象使用和属性</a></li><li><a href="#object.prototype">原型</a></li><li><a href="#object.hasownproperty"><code>hasOwnProperty</code> 函数</a></li><li><a href="#object.forinloop"><code>for in</code> 循环</a></li></ul></li><li class="nav_function"><h1><a href="#function">函数</a></h1><ul><li><a href="#function.general">函数声明与表达式</a></li><li><a href="#function.this"><code>this</code> 的工作原理</a></li><li><a href="#function.closures">闭包和引用</a></li><li><a href="#function.arguments"><code>arguments</code> 对象</a></li><li><a href="#function.constructors">构造函数</a></li><li><a href="#function.scopes">作用域与命名空间</a></li></ul></li><li class="nav_array"><h1><a href="#array">数组</a></h1><ul><li><a href="#array.general">数组遍历与属性</a></li><li><a href="#array.constructor"><code>Array</code> 构造函数</a></li></ul></li><li class="nav_types"><h1><a href="#types">类型</a></h1><ul><li><a href="#types.equality">相等与比较</a></li><li><a href="#types.typeof"><code>typeof</code> 操作符</a></li><li><a href="#types.instanceof"><code>instanceof</code> 操作符</a></li><li><a href="#types.casting">类型转换</a></li></ul></li><li class="nav_core"><h1><a href="#core">核心</a></h1><ul><li><a href="#core.eval">为什么不要使用 <code>eval</code></a></li><li><a href="#core.undefined"><code>undefined</code> 和 <code>null</code></a></li><li><a href="#core.semicolon">自动分号插入</a></li></ul></li><li class="nav_other"><h1><a href="#other">其它</a></h1><ul><li><a href="#other.timeouts"><code>setTimeout</code> 和 <code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>简介</h1><div><p><strong>JavaScript 秘密花园</strong>是一个不断更新，主要关心 JavaScript 一些古怪用法的文档。
 对于如何避免常见的错误，难以发现的问题，以及性能问题和不好的实践给出建议，
 初学者可以籍此深入了解 JavaScript 的语言特性。</p>
 
@@ -11,7 +11,7 @@
 <aside>
   <p><strong>译者注：</strong> 文中提到的 ES5 是 ECMAScript 5 的简写，是 ECMAScript 标准语言的下一版本，正在开发中。
   JavaScript 是此标准语言的一个方言。</p>
-</aside></div></header><!-- Articles--><article id="intro.authors"><h2>﻿关于作者</h2><div><p>这篇文章的作者是两位 <a href="http://stackoverflow.com/">Stack Overflow</a> 用户, <a href="http://stackoverflow.com/users/170224/ivo-wetzel">伊沃·韦特泽尔 Ivo Wetzel</a>（写作） 和 <a href="http://stackoverflow.com/users/313758/yi-jiang">张易江 Zhang Yi Jiang</a>（设计）。</p></div></article><article id="intro.contributors"><h2>﻿贡献者</h2><div><ul>
+</aside></div></header><!-- Articles--><article id="intro.authors"><h2>关于作者</h2><div><p>这篇文章的作者是两位 <a href="http://stackoverflow.com/">Stack Overflow</a> 用户, <a href="http://stackoverflow.com/users/170224/ivo-wetzel">伊沃·韦特泽尔 Ivo Wetzel</a>（写作） 和 <a href="http://stackoverflow.com/users/313758/yi-jiang">张易江 Zhang Yi Jiang</a>（设计）。</p></div></article><article id="intro.contributors"><h2>贡献者</h2><div><ul>
 <li><a href="https://github.com/caio">Caio Romão</a> （拼写检查）</li>
 <li><a href="https://github.com/blixt">Andreas Blixt</a> （语言修正）</li>
 </ul>
@@ -22,11 +22,11 @@
 <li><a href="http://sanshi.me/">三生石上</a></li>
 </ul>
 
-<p>此中文翻译由<a href="http://sanshi.me/">三生石上</a>独立完成，<a href="http://cnblogs.com/sanshi/">博客园</a>首发，转载请注明出处。</p></div></article><article id="intro.license"><h2>﻿许可</h2><div><p>JavaScript 秘密花园在 <a href="https://github.com/BonsaiDen/JavaScript-Garden/blob/next/LICENSE">MIT license</a> 许可协议下发布，并存放在 <a href="https://github.com/BonsaiDen/JavaScript-Garden">GitHub</a> 开源社区。
+<p>此中文翻译由<a href="http://sanshi.me/">三生石上</a>独立完成，<a href="http://cnblogs.com/sanshi/">博客园</a>首发，转载请注明出处。</p></div></article><article id="intro.license"><h2>许可</h2><div><p>JavaScript 秘密花园在 <a href="https://github.com/BonsaiDen/JavaScript-Garden/blob/next/LICENSE">MIT license</a> 许可协议下发布，并存放在 <a href="https://github.com/BonsaiDen/JavaScript-Garden">GitHub</a> 开源社区。
 如果你发现错误或者打字错误，请<a href="https://github.com/BonsaiDen/JavaScript-Garden/issues">新建一个任务单</a>或者发一个抓取请求。
-你也可以在 Stack Overflow 的 <a href="http://chat.stackoverflow.com/rooms/17/javascript">JavaScript 聊天室</a>找到我们。</p></div></article></section><section id="object"><!-- Introduction--><header id="object.intro"><h1>对象</h1></header><!-- Articles--><article id="object.general"><h2>﻿对象使用和属性</h2><div><p>JavaScript 中所有变量都是对象，除了两个例外 <a href="#core.undefined"><code>null</code></a> 和 <a href="#core.undefined"><code>undefined</code></a>。</p>
+你也可以在 Stack Overflow 的 <a href="http://chat.stackoverflow.com/rooms/17/javascript">JavaScript 聊天室</a>找到我们。</p></div></article></section><section id="object"><!-- Introduction--><header id="object.intro"><h1>对象</h1></header><!-- Articles--><article id="object.general"><h2>对象使用和属性</h2><div><p>JavaScript 中所有变量都是对象，除了两个例外 <a href="#core.undefined"><code>null</code></a> 和 <a href="#core.undefined"><code>undefined</code></a>。</p>
 
-<pre><code>false.toString() // &#39;false&#39;
+<pre><code>false.toString(); // &#39;false&#39;
 [1, 2, 3].toString(); // &#39;1,2,3&#39;
 
 function Foo(){}
@@ -118,7 +118,7 @@ for(var i in obj) {
 上面的第二种声明方式在 ECMAScript 5 之前会抛出 <code>SyntaxError</code> 的错误。</p>
 
 <p>这个错误的原因是 <code>delete</code> 是 JavaScript 语言的一个<em>关键词</em>；因此为了在更低版本的 JavaScript 引擎下也能正常运行，
-必须使用<em>字符串字面值</em>声明方式。</p></div></article><article id="object.prototype"><h2>﻿原型</h2><div><p>JavaScript 不包含传统的类继承模型，而是使用 <em>prototypal</em> 原型模型。</p>
+必须使用<em>字符串字面值</em>声明方式。</p></div></article><article id="object.prototype"><h2>原型</h2><div><p>JavaScript 不包含传统的类继承模型，而是使用 <em>prototypal</em> 原型模型。</p>
 
 <p>虽然这经常被当作是 JavaScript 的缺点被提及，其实基于原型的继承模型比传统的类继承还要强大。
 实现传统的类继承模型是很简单，但是实现 JavaScript 中的原型继承则要困难的多。
@@ -212,7 +212,7 @@ Foo.prototype = 1; // 无效
 
 <p>在写复杂的 JavaScript 应用之前，充分理解原型链继承的工作方式是每个 JavaScript 程序员<strong>必修</strong>的功课。
 要提防原型链过长带来的性能问题，并知道如何通过缩短原型链来提高性能。
-更进一步，绝对<strong>不要</strong>扩展内置类型的原型，除非是为了和新的 JavaScript 引擎兼容。</p></div></article><article id="object.hasownproperty"><h2>﻿<code>hasOwnProperty</code> 函数</h2><div><p>为了判断一个对象是否包含<em>自定义</em>属性而<em>不是</em><a href="#object.prototype">原型链</a>上的属性，
+更进一步，绝对<strong>不要</strong>扩展内置类型的原型，除非是为了和新的 JavaScript 引擎兼容。</p></div></article><article id="object.hasownproperty"><h2><code>hasOwnProperty</code> 函数</h2><div><p>为了判断一个对象是否包含<em>自定义</em>属性而<em>不是</em><a href="#object.prototype">原型链</a>上的属性，
 我们需要使用继承自 <code>Object.prototype</code> 的 <code>hasOwnProperty</code> 方法。</p>
 
 <aside>
@@ -258,7 +258,7 @@ foo.hasOwnProperty(&#39;bar&#39;); // 总是返回 false
 
 <p>当检查对象上某个属性是否存在时，<code>hasOwnProperty</code> 是<strong>唯一</strong>可用的方法。
 同时在使用 <a href="#object.forinloop"><code>for in</code> loop</a> 遍历对象时，推荐<strong>总是</strong>使用 <code>hasOwnProperty</code> 方法，
-这将会避免<a href="#object.prototype">原型</a>对象扩展带来的干扰。</p></div></article><article id="object.forinloop"><h2>﻿<code>for in</code> 循环</h2><div><p>和 <code>in</code> 操作符一样，<code>for in</code> 循环同样在查找对象属性时遍历原型链上的所有属性。</p>
+这将会避免<a href="#object.prototype">原型</a>对象扩展带来的干扰。</p></div></article><article id="object.forinloop"><h2><code>for in</code> 循环</h2><div><p>和 <code>in</code> 操作符一样，<code>for in</code> 循环同样在查找对象属性时遍历原型链上的所有属性。</p>
 
 <aside>
   <p><strong>注意:</strong> <code>for in</code> 循环<strong>不会</strong>遍历那些 <code>enumerable</code> 设置为 <code>false</code> 的属性；比如数组的 <code>length</code> 属性。</p>
@@ -298,8 +298,8 @@ for(var i in foo) {
 
 </div><div><h3>总结</h3>
 
-<p>推荐<strong>总是</strong>使用 <code>hasOwnProperty</code>。不要对代码运行的环境做任何假设，不要假设原生对象是否已经被扩展了。</p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>函数</h1></header><!-- Articles--><article id="function.general"><h2>﻿函数声明与表达式</h2><div><p>函数是JavaScript中的一等对象，这意味着可以把函数像其它值一样传递。
-一个常见的用法是把<em>匿名函数</em>作为回调函数传递对异步函数中。</p>
+<p>推荐<strong>总是</strong>使用 <code>hasOwnProperty</code>。不要对代码运行的环境做任何假设，不要假设原生对象是否已经被扩展了。</p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>函数</h1></header><!-- Articles--><article id="function.general"><h2>函数声明与表达式</h2><div><p>函数是JavaScript中的一等对象，这意味着可以把函数像其它值一样传递。
+一个常见的用法是把<em>匿名函数</em>作为回调函数传递到异步函数中。</p>
 
 </div><div><h3>函数声明</h3>
 
@@ -341,7 +341,7 @@ bar(); // 出错：ReferenceError
 
 <p><code>bar</code> 函数声明外是不可见的，这是因为我们已经把函数赋值给了 <code>foo</code>；
 然而在 <code>bar</code> 内部依然可见。这是由于 JavaScript 的 <a href="#function.scopes">命名处理</a> 所致，
-函数名在函数内<em>总是</em>可见的。</p></div></article><article id="function.this"><h2>﻿<code>this</code> 的工作原理</h2><div><p>JavaScript 有一套完全不同于其它语言的对 <code>this</code> 的处理机制。
+函数名在函数内<em>总是</em>可见的。</p></div></article><article id="function.this"><h2><code>this</code> 的工作原理</h2><div><p>JavaScript 有一套完全不同于其它语言的对 <code>this</code> 的处理机制。
 在<strong>五</strong>种不同的情况下 ，<code>this</code> 指向的各不相同。</p>
 
 </div><div><h3>全局范围内</h3>
@@ -451,7 +451,7 @@ Bar.prototype = Foo.prototype;
 new Bar().method();
 </code></pre>
 
-<p>当 <code>method</code> 被调用时，<code>this</code> 将会指向 <code>Bar</code> 的实例对象。</p></div></article><article id="function.closures"><h2>﻿闭包和引用</h2><div><p>闭包是 JavaScript 一个非常重要的特性，这意味着当前作用域<strong>总是</strong>能够访问外部作用域中的变量。
+<p>当 <code>method</code> 被调用时，<code>this</code> 将会指向 <code>Bar</code> 的实例对象。</p></div></article><article id="function.closures"><h2>闭包和引用</h2><div><p>闭包是 JavaScript 一个非常重要的特性，这意味着当前作用域<strong>总是</strong>能够访问外部作用域中的变量。
 因为 <a href="#function.scopes">函数</a> 是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数。</p>
 
 </div><div><h3>模拟私有变量</h3>
@@ -534,7 +534,7 @@ foo.hack = function() {
         }
     })(i), 1000)
 }
-</code></pre></div></article><article id="function.arguments"><h2>﻿<code>arguments</code> 对象</h2><div><p>JavaScript 中每个函数内都能访问一个特别变量 <code>arguments</code>。这个变量维护着所有传递到这个函数中的参数列表。</p>
+</code></pre></div></article><article id="function.arguments"><h2><code>arguments</code> 对象</h2><div><p>JavaScript 中每个函数内都能访问一个特别变量 <code>arguments</code>。这个变量维护着所有传递到这个函数中的参数列表。</p>
 
 <aside>
   <p><strong>注意:</strong> 由于 <code>arguments</code> 已经被定义为函数内的一个变量。
@@ -619,7 +619,7 @@ foo(1, 2, 3);
 <p><code>arguments</code> 对象总会被创建，除了两个特殊情况 - 作为局部变量声明和作为形式参数。
 而不管它是否有被使用。</p>
 
-<p><code>arguments</code> 的 <em>getters</em> 和 <em>setters</em> 方法总会被创佳；因此使用 <code>arguments</code> 对性能不会有什么影响。
+<p><code>arguments</code> 的 <em>getters</em> 和 <em>setters</em> 方法总会被创建；因此使用 <code>arguments</code> 对性能不会有什么影响。
 除非是需要对 <code>arguments</code> 对象的属性进行多次访问。</p>
 
 <aside class="es5"><p><strong>ES5 提示:</strong> 这些 <em>getters</em> 和 <em>setters</em> 在严格模式下（strict mode）不会被创建。</p>
@@ -659,7 +659,7 @@ function bigLoop() {
 <p>因此<strong>强烈</strong>建议大家<strong>不要</strong>使用 <code>arguments.callee</code> 和它的属性。</p>
 
 <aside class="es5"><p><strong>ES5 提示:</strong> 在严格模式下，<code>arguments.callee</code> 会报错 <code>TypeError</code>，因为它已经被废除了。</p>
-</aside></div></article><article id="function.constructors"><h2>﻿构造函数</h2><div><p>JavaScript 中的构造函数和其它语言中的构造函数是不同的。
+</aside></div></article><article id="function.constructors"><h2>构造函数</h2><div><p>JavaScript 中的构造函数和其它语言中的构造函数是不同的。
 通过 <code>new</code> 关键字方式调用的函数都被认为是构造函数。</p>
 
 <p>在构造函数内部 - 也就是被调用的函数内 - <code>this</code> 指向新创建的对象 <code>Object</code>。
@@ -796,7 +796,7 @@ typeof(bar2.foo); // "undefined"
 </div><div><h3>总结</h3>
 
 <p>虽然遗漏 <code>new</code> 关键字可能会导致问题，但这并<strong>不是</strong>放弃使用原型链的借口。
-最终使用哪种方式取决于应用程序的需求，选择一种代码书写风格并<strong>坚持</strong>下去才是最重要的。</p></div></article><article id="function.scopes"><h2>﻿作用域与命名空间</h2><div><p>尽管 JavaScript 支持一对花括号创建的代码段，但是并不支持块级作用域；
+最终使用哪种方式取决于应用程序的需求，选择一种代码书写风格并<strong>坚持</strong>下去才是最重要的。</p></div></article><article id="function.scopes"><h2>作用域与命名空间</h2><div><p>尽管 JavaScript 支持一对花括号创建的代码段，但是并不支持块级作用域；
 而仅仅支持 <em>函数作用域</em>。</p>
 
 <pre><code>function test() { // 一个作用域
@@ -1028,7 +1028,7 @@ function() {}
 <p>推荐使用<em>匿名包装器</em>（<strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>也就是自执行的匿名函数）来创建命名空间。这样不仅可以防止命名冲突，
 而且有利于程序的模块化。</p>
 
-<p>另外，使用全局变量被认为是<strong>不好的习惯</strong>。这样的代码倾向于产生错误和带来高的维护成本。</p></div></article></section><section id="array"><!-- Introduction--><header id="array.intro"><h1>数组</h1></header><!-- Articles--><article id="array.general"><h2>﻿数组遍历与属性</h2><div><p>虽然在 JavaScript 中数组是是对象，但是没有好的理由去使用 <a href="#object.forinloop"><code>for in</code> 循环</a> 遍历数组。
+<p>另外，使用全局变量被认为是<strong>不好的习惯</strong>。这样的代码倾向于产生错误和带来高的维护成本。</p></div></article></section><section id="array"><!-- Introduction--><header id="array.intro"><h1>数组</h1></header><!-- Articles--><article id="array.general"><h2>数组遍历与属性</h2><div><p>虽然在 JavaScript 中数组是是对象，但是没有好的理由去使用 <a href="#object.forinloop"><code>for in</code> 循环</a> 遍历数组。
 相反，有一些好的理由<strong>不去</strong>使用 <code>for in</code> 遍历数组。</p>
 
 <aside>
@@ -1084,7 +1084,7 @@ foo[5] = undefined;
 </div><div><h3>结论</h3>
 
 <p>为了更好的性能，推荐使用普通的 <code>for</code> 循环并缓存数组的 <code>length</code> 属性。
-使用 <code>for in</code> 遍历数组被认为是不好的代码习惯并倾向于产生错误和导致性能问题。</p></div></article><article id="array.constructor"><h2>﻿<code>Array</code> 构造函数</h2><div><p>由于 <code>Array</code> 的构造函数在如何处理参数时有点模棱两可，因此总是推荐使用数组的字面语法 - <code>[]</code> - 来创建数组。</p>
+使用 <code>for in</code> 遍历数组被认为是不好的代码习惯并倾向于产生错误和导致性能问题。</p></div></article><article id="array.constructor"><h2><code>Array</code> 构造函数</h2><div><p>由于 <code>Array</code> 的构造函数在如何处理参数时有点模棱两可，因此总是推荐使用数组的字面语法 - <code>[]</code> - 来创建数组。</p>
 
 <pre><code>[1, 2, 3]; // 结果: [1, 2, 3]
 new Array(1, 2, 3); // 结果: [1, 2, 3]
@@ -1125,7 +1125,7 @@ arr[1]; // undefined
 
 </div><div><h3>结论</h3>
 
-<p>应该尽量避免使用数组构造函数创建新数组。推荐使用数组的字面语法。它们更加短小和简洁，因此增加了代码的可读性。</p></div></article></section><section id="types"><!-- Introduction--><header id="types.intro"><h1>类型</h1></header><!-- Articles--><article id="types.equality"><h2>﻿相等与比较</h2><div><p>JavaScript 有两种方式判断两个值是否相等。</p>
+<p>应该尽量避免使用数组构造函数创建新数组。推荐使用数组的字面语法。它们更加短小和简洁，因此增加了代码的可读性。</p></div></article></section><section id="types"><!-- Introduction--><header id="types.intro"><h1>类型</h1></header><!-- Articles--><article id="types.equality"><h2>相等与比较</h2><div><p>JavaScript 有两种方式判断两个值是否相等。</p>
 
 </div><div><h3>等于操作符</h3>
 
@@ -1144,7 +1144,7 @@ null         ==   undefined     // true
 " \t\r\n"    ==   0             // true
 </code></pre>
 
-<p>上面的表格展示了强类型转换，这也是使用 <code>==</code> 被广泛认为是不好编程习惯的主要原因，
+<p>上面的表格展示了强制类型转换，这也是使用 <code>==</code> 被广泛认为是不好编程习惯的主要原因，
 由于它的复杂转换规则，会导致难以跟踪的问题。</p>
 
 <p>此外，强制类型转换也会带来性能消耗，比如一个字符串为了和一个数组进行比较，必须事先被强制转换为数字。</p>
@@ -1153,7 +1153,7 @@ null         ==   undefined     // true
 
 <p>严格等于操作符由<strong>三</strong>个等号组成：<code>===</code></p>
 
-<p>不想普通的等于操作符，严格等于操作符<strong>不会</strong>进行强制类型转换。</p>
+<p>不像普通的等于操作符，严格等于操作符<strong>不会</strong>进行强制类型转换。</p>
 
 <pre><code>""           ===   "0"           // false
 0            ===   ""            // false
@@ -1185,7 +1185,7 @@ foo === foo;                 // true
 </div><div><h3>结论</h3>
 
 <p>强烈推荐使用<strong>严格等于操作符</strong>。如果类型需要转换，应该在比较之前<a href="#types.casting">显式</a>的转换，
-而不是使用语言本身复杂的强制转换规则。</p></div></article><article id="types.typeof"><h2>﻿<code>typeof</code> 操作符</h2><div><p><code>typeof</code> 操作符（和 <a href="#types.instanceof"><code>instanceof</code></a> 一起）或许是 JavaScript 中最大的设计缺陷，
+而不是使用语言本身复杂的强制转换规则。</p></div></article><article id="types.typeof"><h2><code>typeof</code> 操作符</h2><div><p><code>typeof</code> 操作符（和 <a href="#types.instanceof"><code>instanceof</code></a> 一起）或许是 JavaScript 中最大的设计缺陷，
 因为几乎不可能从它们那里得到想要的结果。</p>
 
 <p>尽管 <code>instanceof</code> 还有一些极少数的应用场景，<code>typeof</code> 只有一个实际的应用（<strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>这个实际应用是用来检测一个对象是否已经定义或者是否已经赋值），
@@ -1281,7 +1281,7 @@ Object.prototype.toString.call(undefined)   // "[object Undefined]"
 因为这是唯一一个可依赖的方式。正如上面表格所示，<code>typeof</code> 的一些返回值在标准文档中并未定义，
 因此不同的引擎实现可能不同。</p>
 
-<p>除非为了检测一个变量是否已经定义，我们应尽量避免使用 <code>typeof</code> 操作符。</p></div></article><article id="types.instanceof"><h2>﻿<code>instanceof</code> 操作符</h2><div><p><code>instanceof</code> 操作符用来比较两个操作数的构造函数。只有在比较自定义的对象时才有意义。
+<p>除非为了检测一个变量是否已经定义，我们应尽量避免使用 <code>typeof</code> 操作符。</p></div></article><article id="types.instanceof"><h2><code>instanceof</code> 操作符</h2><div><p><code>instanceof</code> 操作符用来比较两个操作数的构造函数。只有在比较自定义的对象时才有意义。
 如果用来比较内置类型，将会和 <a href="#types.typeof"><code>typeof</code> 操作符</a> 一样用处不大。</p>
 
 </div><div><h3>比较自定义对象</h3>
@@ -1293,7 +1293,7 @@ Bar.prototype = new Foo();
 new Bar() instanceof Bar; // true
 new Bar() instanceof Foo; // true
 
-// 如果仅仅设置 Bar.prototype 为函数 Foo 本省，而不是 Foo 构造函数的一个实例
+// 如果仅仅设置 Bar.prototype 为函数 Foo 本身，而不是 Foo 构造函数的一个实例
 Bar.prototype = Foo;
 new Bar() instanceof Foo; // false
 </code></pre>
@@ -1313,7 +1313,7 @@ new String(&#39;foo&#39;) instanceof Object; // true
 </div><div><h3>结论</h3>
 
 <p><code>instanceof</code> 操作符应该<strong>仅仅</strong>用来比较来自同一个 JavaScript 上下文的自定义对象。
-正如 <a href="#types.typeof"><code>typeof</code></a> 操作符一样，任何其它的用法都应该是避免的。</p></div></article><article id="types.casting"><h2>﻿类型转换</h2><div><p>JavaScript 是<em>弱类型</em>语言，所以会在<strong>任何</strong>可能的情况下应用<em>强制类型转换</em>。</p>
+正如 <a href="#types.typeof"><code>typeof</code></a> 操作符一样，任何其它的用法都应该是避免的。</p></div></article><article id="types.casting"><h2>类型转换</h2><div><p>JavaScript 是<em>弱类型</em>语言，所以会在<strong>任何</strong>可能的情况下应用<em>强制类型转换</em>。</p>
 
 <pre><code>// 下面的比较结果是：true
 new Number(10) == 10; // Number.toString() 返回的字符串被再次转换为数字
@@ -1388,7 +1388,7 @@ parseInt(&#39;010.2&#39;, 10) === 10
 !!&#39;-1&#39;     // true
 !!{};      // true
 !!true;    // true
-</code></pre></div></article></section><section id="core"><!-- Introduction--><header id="core.intro"><h1>核心</h1></header><!-- Articles--><article id="core.eval"><h2>﻿为什么不要使用 <code>eval</code></h2><div><p><code>eval</code> 函数会在当前作用域中执行一段 JavaScript 代码字符串。</p>
+</code></pre></div></article></section><section id="core"><!-- Introduction--><header id="core.intro"><h1>核心</h1></header><!-- Articles--><article id="core.eval"><h2>为什么不要使用 <code>eval</code></h2><div><p><code>eval</code> 函数会在当前作用域中执行一段 JavaScript 代码字符串。</p>
 
 <pre><code>var foo = 1;
 function test() {
@@ -1452,7 +1452,7 @@ foo; // 3
 
 <p>绝对不要使用 <code>eval</code>，任何使用它的代码都会在它的工作方式，性能和安全性方面受到质疑。
 如果一些情况必须使用到 <code>eval</code> 才能正常工作，首先它的设计会受到质疑，这<strong>不应该</strong>是首选的解决方案，
-一个更好的不使用 <code>eval</code> 的解决方案应该得到充分考虑并优先采用。</p></div></article><article id="core.undefined"><h2>﻿<code>undefined</code> 和 <code>null</code></h2><div><p>JavaScript 有两个表示‘空’的值，其中比较有用的是 <code>undefined</code>。</p>
+一个更好的不使用 <code>eval</code> 的解决方案应该得到充分考虑并优先采用。</p></div></article><article id="core.undefined"><h2><code>undefined</code> 和 <code>null</code></h2><div><p>JavaScript 有两个表示‘空’的值，其中比较有用的是 <code>undefined</code>。</p>
 
 </div><div><h3><code>undefined</code> 的值</h3>
 
@@ -1514,7 +1514,7 @@ foo; // 3
 
 <p>JavaScript 中的 <code>undefined</code> 的使用场景类似于其它语言中的 <em>null</em>，实际上 JavaScript 中的 <code>null</code> 是另外一种数据类型。</p>
 
-<p>它在 JavaScript 内部有一些使用场景（比如声明原型链的终结 <code>Foo.prototype = null</code>），但是大多数情况下都可以使用 <code>undefined</code> 来代替。</p></div></article><article id="core.semicolon"><h2>﻿自动分号插入</h2><div><p>尽管 JavaScript 有 C 的代码风格，但是它<strong>不</strong>强制要求在代码中使用分号，实际上可以省略它们。</p>
+<p>它在 JavaScript 内部有一些使用场景（比如声明原型链的终结 <code>Foo.prototype = null</code>），但是大多数情况下都可以使用 <code>undefined</code> 来代替。</p></div></article><article id="core.semicolon"><h2>自动分号插入</h2><div><p>尽管 JavaScript 有 C 的代码风格，但是它<strong>不</strong>强制要求在代码中使用分号，实际上可以省略它们。</p>
 
 <p>JavaScript 不是一个没有分号的语言，恰恰相反上它需要分号来就解析源代码。
 因此 JavaScript 解析器在遇到由于缺少分号导致的解析错误时，会<strong>自动</strong>在源代码中插入分号。</p>
@@ -1618,7 +1618,7 @@ test()
 
 <p>建议<strong>绝对</strong>不要省略分号，同时也提倡将花括号和相应的表达式放在一行，
 对于只有一行代码的 <code>if</code> 或者 <code>else</code> 表达式，也不应该省略花括号。
-这些良好的编程习惯不仅可以提到代码的一致性，而且可以防止解析器改变代码行为的错误处理。</p></div></article></section><section id="other"><!-- Introduction--><header id="other.intro"><h1>其它</h1></header><!-- Articles--><article id="other.timeouts"><h2>﻿<code>setTimeout</code> 和 <code>setInterval</code></h2><div><p>由于 JavaScript 是异步的，可以使用 <code>setTimeout</code> 和 <code>setInterval</code> 来计划执行函数。</p>
+这些良好的编程习惯不仅可以提到代码的一致性，而且可以防止解析器改变代码行为的错误处理。</p></div></article></section><section id="other"><!-- Introduction--><header id="other.intro"><h1>其它</h1></header><!-- Articles--><article id="other.timeouts"><h2><code>setTimeout</code> 和 <code>setInterval</code></h2><div><p>由于 JavaScript 是异步的，可以使用 <code>setTimeout</code> 和 <code>setInterval</code> 来计划执行函数。</p>
 
 <aside>
   <p><strong>注意:</strong> 定时处理<strong>不是</strong> ECMAScript 的标准，它们在 <a href="http://en.wikipedia.org/wiki/Document_Object_Model">DOM (文档对象模型)</a> 被实现。</p>
@@ -1658,7 +1658,7 @@ new Foo();
 <p><code>setTimeout</code> 只会执行回调函数一次，不过 <code>setInterval</code> - 正如名字建议的 - 会每隔 <code>X</code> 毫秒执行函数一次。
 但是却不鼓励使用这个函数。</p>
 
-<p>当回调函数的执行被阻塞时，<code>setInterval</code> 仍然会发布更多的毁掉指令。在很小的定时间隔情况下，这会导致回调函数被堆积起来。</p>
+<p>当回调函数的执行被阻塞时，<code>setInterval</code> 仍然会发布更多的回调指令。在很小的定时间隔情况下，这会导致回调函数被堆积起来。</p>
 
 <pre><code>function foo(){
     // 阻塞执行 1 秒

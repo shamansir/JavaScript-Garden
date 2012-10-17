@@ -37,7 +37,7 @@ request on the repository. You can also find us in the <a href="http://chat.stac
 Stack Overflow chat.</p></div></header><!-- Articles--></section><section id="object"><!-- Introduction--><header id="object.intro"><h1>Objects</h1></header><!-- Articles--><article id="object.general"><h2>Object Usage and Properties</h2><div><p>Everything in JavaScript acts like an object, with the only two exceptions being 
 <a href="#core.undefined"><code>null</code></a> and <a href="#core.undefined"><code>undefined</code></a>.</p>
 
-<pre><code>false.toString() // &#39;false&#39;
+<pre><code>false.toString(); // &#39;false&#39;
 [1, 2, 3].toString(); // &#39;1,2,3&#39;
 
 function Foo(){}
@@ -65,7 +65,7 @@ literals act as objects too.</p>
 <p>Objects in JavaScript can also be used as a <a href="http://en.wikipedia.org/wiki/Hashmap"><em>Hashmap</em></a>; they mainly consist 
 of named properties mapping to values.</p>
 
-<p>Using a object literal - <code>{}</code> notation - it is possible to create a 
+<p>Using an object literal - <code>{}</code> notation - it is possible to create a 
 plain object. This new object <a href="#object.prototype">inherits</a> from <code>Object.prototype</code> and 
 has no <a href="#object.hasownproperty">own properties</a> defined on it.</p>
 
@@ -80,7 +80,7 @@ var bar = {test: 12};
 <p>The properties of an object can be accessed in two ways, via either the dot
 notation or the square bracket notation.</p>
 
-<pre><code>var foo = {name: &#39;Kitten&#39;}
+<pre><code>var foo = {name: &#39;kitten&#39;}
 foo.name; // kitten
 foo[&#39;name&#39;]; // kitten
 
@@ -295,7 +295,7 @@ foo.hasOwnProperty(&#39;bar&#39;); // always returns false
 // Use another Object&#39;s hasOwnProperty and call it with &#39;this&#39; set to foo
 ({}).hasOwnProperty.call(foo, &#39;bar&#39;); // true
 
-// It&#39;s also possible use the hasOwnProperty property from the Object property for this purpuse
+// It&#39;s also possible use the hasOwnProperty property from the Object property for this purpose
 Object.prototype.hasOwnProperty.call(obj, &#39;bar&#39;); // true
 </code></pre>
 
@@ -357,7 +357,7 @@ guaranteed to break.</p>
 assumptions be made about the environment the code is running in, or whether the 
 native prototypes have been extended or not.</p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>Functions</h1></header><!-- Articles--><article id="function.general"><h2>Function Declarations and Expressions</h2><div><p>Functions in JavaScript are first class objects. That means they can be 
 passed around like any other value. One common use of this feature is to pass
-an <em>anonymous function</em> as a callback to another, possibly asynchronous function.</p>
+an <em>anonymous function</em> as a callback to another, possibly an asynchronous function.</p>
 
 </div><div><h3>The <code>function</code> Declaration</h3>
 
@@ -1032,7 +1032,7 @@ has been applied.</p>
 <p>Without the knowledge about <em>hoisting</em>, the below code might seem to raise a 
 <code>ReferenceError</code>.</p>
 
-<pre><code>// check whether SomeImportantThing has been initiliazed
+<pre><code>// check whether SomeImportantThing has been initialized
 if (!SomeImportantThing) {
     var SomeImportantThing = {};
 }
@@ -1043,7 +1043,7 @@ moved to the top of the <em>global scope</em>.</p>
 
 <pre><code>var SomeImportantThing;
 
-// other code might initiliaze SomeImportantThing here, or not
+// other code might initialize SomeImportantThing here, or not
 
 // make sure it&#39;s there
 if (!SomeImportantThing) {
@@ -1117,7 +1117,7 @@ also allows for better modularization of programs.</p>
 
 <p>Additionally, the use of global variables is considered <strong>bad practice</strong>. <strong>Any</strong>
 use of them indicates badly written code that is prone to errors and hard to maintain.</p></div></article></section><section id="array"><!-- Introduction--><header id="array.intro"><h1>Arrays</h1></header><!-- Articles--><article id="array.general"><h2>Array Iteration and Properties</h2><div><p>Although arrays in JavaScript are objects, there are no good reasons to use
-the <a href="#object.forinloop"><code>for in loop</code></a> in for iteration on them. In fact, there 
+the <a href="#object.forinloop"><code>for in</code></a> loop. In fact, there 
 are a number of good reasons <strong>against</strong> the use of <code>for in</code> on arrays.</p>
 
 <aside>
@@ -1164,11 +1164,11 @@ foo.length = 3;
 foo; // [1, 2, 3]
 
 foo.length = 6;
-foo; // [1, 2, 3]
+foo.push(4);
+foo; // [1, 2, 3, undefined, undefined, undefined, 4]
 </code></pre>
 
-<p>Assigning a smaller length does truncate the array, but increasing the length 
-does not have any effect on the array.</p>
+<p>Assigning a smaller length truncates the array. Increasing it creates a sparse array.</p>
 
 </div><div><h3>In Conclusion</h3>
 
@@ -1280,7 +1280,7 @@ and pointer comparison in C.</p>
 where types need to be coerced, it should be done <a href="#types.casting">explicitly</a> 
 and not left to the language&#39;s complicated coercion rules.</p></div></article><article id="types.typeof"><h2>The <code>typeof</code> Operator</h2><div><p>The <code>typeof</code> operator (together with 
 <a href="#types.instanceof"><code>instanceof</code></a>) is probably the biggest 
-design flaw of JavaScript, as it is near of being <strong>completely broken</strong>.</p>
+design flaw of JavaScript, as it is nearly <strong>completely broken</strong>.</p>
 
 <p>Although <code>instanceof</code> still has its limited uses, <code>typeof</code> really has only one
 practical use case, which does <strong>not</strong> happen to be checking the type of an 
@@ -1766,10 +1766,10 @@ GLOBAL_OBJECT.a; // undefined
 </code></pre>
 
 <p>Here we use a trick to delete <code>a</code>. <a href="#function.this"><code>this</code></a> here refers 
-to the Global object and we explicitly declare variable <code>a</code> as it&#39;s property 
+to the Global object and we explicitly declare variable <code>a</code> as its property 
 which allows us to delete it.</p>
 
-<p>IE (at least 6-8) has some bugs, so code above doesn&#39;t work.</p>
+<p>IE (at least 6-8) has some bugs, so the code above doesn&#39;t work.</p>
 
 </div><div><h3>Function arguments and built-ins</h3>
 
@@ -1951,7 +1951,7 @@ function that will get called by either of the timeout functions. </p>
 <pre><code>function foo(a, b, c) {}
 
 // NEVER use this
-setTimeout(&#39;foo(1,2, 3)&#39;, 1000)
+setTimeout(&#39;foo(1, 2, 3)&#39;, 1000)
 
 // Instead use an anonymous function
 setTimeout(function() {

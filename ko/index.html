@@ -30,7 +30,7 @@
 
 <p>JavaScript Garden은 <a href="https://github.com/BonsaiDen/JavaScript-Garden/blob/next/LICENSE">MIT license</a>를 따르고 <a href="https://github.com/BonsaiDen/JavaScript-Garden">GitHub</a>에서 호스팅하고 있다. 문제를 발견하면 <a href="https://github.com/BonsaiDen/JavaScript-Garden/issues">이슈를 보고</a>하거나 수정해서 Pull Request를 하라. 아니면 Stack Overflow 채팅 사이트의 <a href="http://chat.stackoverflow.com/rooms/17/javascript">Javascript room</a>에서 우리를 찾으라.</p></div></header><!-- Articles--></section><section id="object"><!-- Introduction--><header id="object.intro"><h1>객체</h1></header><!-- Articles--><article id="object.general"><h2>객체와 프로퍼티</h2><div><p>JavaScript에서 <a href="#core.undefined"><code>null</code></a>과 <a href="#core.undefined"><code>undefined</code></a>를 제외한 모든 것은 객체다.</p>
 
-<pre><code>false.toString() // &#39;false&#39;
+<pre><code>false.toString(); // &#39;false&#39;
 [1, 2, 3].toString(); // &#39;1,2,3&#39;
 
 function Foo(){}
@@ -225,6 +225,9 @@ foo.hasOwnProperty(&#39;bar&#39;); // 항상 false를 반환한다.
 
 // 다른 객체의 hasOwnProperty를 사용하여 foo 객체의 프로퍼티 유무를 확인한다.
 ({}).hasOwnProperty.call(foo, &#39;bar&#39;); // true
+
+// Object에 원래 있는 hasOwnProperty를 사용해도 된다.
+Object.prototype.hasOwnProperty.call(obj, &#39;bar&#39;); // true
 </code></pre>
 
 </div><div><h3>결론</h3>
@@ -580,7 +583,7 @@ function bigLoop() {
 <aside class="es5"><p><strong>ES5 Note:</strong> strict 모드에서 <code>arguments.callee</code>는 deprecated됐기 때문에 사용하면 <code>TypeError</code>가 난다.</p>
 </aside></div></article><article id="function.constructors"><h2>생성자</h2><div><p>JavaScript에서 생성자는 다른 언어들과 다르게 <code>new</code> 키워드로 호출되는 함수가 생성자다.</p>
 
-<p>어쨌든 생성자로 호출된 함수의 this는 막 만들어진 객체를 참조한다. <strong>막 만든</strong> 객체의 <a href="#object.prototype"><code>prototype</code></a>에는 생성자의 prototype이 할당된다.</p>
+<p>어쨌든 생성자로 호출된 함수의 this는 막 만들어진 객체를 참조한다. <strong>막 만든</strong> 객체의 <a href="#object.prototype">prototype</a>에는 생성자의 prototype이 할당된다.</p>
 
 <p>생성자에 <code>return</code> 구문이 없으면 this가 가리키는 객체를 반환한다.</p>
 
@@ -875,18 +878,20 @@ function() {}
 () // Evaluation된 결과를 호출한다.
 </code></pre>
 
-<p>같은 표기법이 두 가지 더 있다. 문법은 다르지만 똑같다.</p>
+<p>Function을 Evaluate하고 바로 호출하는 방법이 몇가지 더 있다. 문법은 다르지만 똑같다.</p>
 
-<pre><code>// 두 가지 다른 방법
+<pre><code>// Fucntion을 Evaluate하자마자 호출하는 방법들...
+!function(){}();
 +function(){}();
 (function(){}());
+// 등등...
 </code></pre>
 
 </div><div><h3>결론</h3>
 
 <p>코드를 캡슐화할 때는 늘 <em>Anonymous Wrapper</em>로 Namepspace를 만들어 사용해야 한다. 이 Wrapper는 이름이 중복되는 것을 막아 주고 더 쉽게 모듈화할 수 있도록 해준다.</p>
 
-<p>그리고 Global 변수를 사용하는 것은 악질적인 습관이다. 이유야 어쨌든 에러 나기 쉽고 관리하기도 어렵다.</p></div></article></section><section id="array"><!-- Introduction--><header id="array.intro"><h1>Array</h1></header><!-- Articles--><article id="array.general"><h2>Array Iteration과 프로퍼티</h2><div><p>JavaScript에서는 Array도 객체 Iterate를 할 때 <a href="#object.forinloop"><code>for in</code></a>을 사용해서 좋을 게 없다. 실제로 Array에 <code>for in</code>을 사용하지 말아야 할 근거가 매우 많다.</p>
+<p>그리고 Global 변수를 사용하는 것은 악질적인 습관이다. 이유야 어쨌든 에러 나기 쉽고 관리하기도 어렵다.</p></div></article></section><section id="array"><!-- Introduction--><header id="array.intro"><h1>Array</h1></header><!-- Articles--><article id="array.general"><h2>Array Iteration과 프로퍼티</h2><div><p>JavaScript에서는 Array도 객체지만 <a href="#object.forinloop"><code>for in</code></a>을 사용해서 좋을 게 없다. 실제로 Array에 <code>for in</code>을 사용하지 말아야 할 근거가 매우 많다.</p>
 
 <aside>
   <p><strong>Note:</strong> JavaScript의 Array는 <em>Associative Array</em>가 <strong>아니다</strong>. JavaScript <a href="#object.general">객체</a>는 key/value만 Mapping할 뿐이다. Associative Array는 순서를 보장하지만, 객체는 보장하지 않는다.</p>
@@ -919,10 +924,11 @@ foo.length = 3;
 foo; // [1, 2, 3]
 
 foo.length = 6;
-foo; // [1, 2, 3]
+foo.push(4);
+foo; // [1, 2, 3, undefined, undefined, undefined, 4]
 </code></pre>
 
-<p>현재 크기보다 더 작은 값을 할당하면 Array를 자르지만, 현재 크기보다 더 큰 값을 할당한다고 해서 Array를 늘리지 않는다.</p>
+<p>현재 크기보다 더 작은 값을 할당하면 Array를 자르고, 현재 크기보다 더 큰 값을 할당하면 늘어난다.</p>
 
 </div><div><h3>결론</h3>
 
@@ -1218,12 +1224,19 @@ foo; // 3
 
 <ul>
 <li>global 변수 <code>undefined</code>에 접근할 때.</li>
+<li>아직 초기화하지 않은 변수</li>
+<li><code>return</code> 구문이 없는 함수는 <code>undefined</code>를 반환함.</li>
 <li><code>return</code> 구문이 없는 함수는 <code>undefined</code>를 반환함.</li>
 <li><code>return</code> 구문으로 아무것도 반환하지 않을 때.</li>
 <li>없는 프로퍼티를 찾을 때.</li>
 <li>함수 인자가 생략될 때.</li>
 <li><code>undefined</code>가 할당된 모든 것.</li>
+<li><code>void(expression)</code> 형식으로 된 표현</li>
 </ul>
+
+<aside>
+  <p><strong>역주:</strong> 예를 들어 CoffeeScript Compliler는 CoffeeScript의 <code>undefined</code>를 JavaScript의 <code>void 0</code>로 컴파일한다.</p>
+</aside>
 
 </div><div><h3><code>undefined</code>가 바뀔 때를 대비하기</h3>
 
@@ -1432,7 +1445,9 @@ GLOBAL_OBJECT.a; // undefined
 
 </div><div><h3>Host 객체</h3>
 
-<p>(역주, Host 객체들은 document같은 DOM 객체를 말한다.)</p>
+<aside>
+  <p><strong>역주:</strong> Host 객체는 document같은 DOM 객체를 말한다.</p>
+</aside>
 
 <p>Host 객체를 delete하면 어떻게 될지 알 수 없다. 표준에는 어떻게 Host 객체를 delete해야 하는지 정의하지 않았다.</p>
 
@@ -1508,7 +1523,7 @@ clearTimeout(id);
 
 </div><div><h3>timeout을 전부 없애기</h3>
 
-<p>등록한 timeout과 interval을 한꺼번에 삭제하는 메소드는 없다. 구현해서 사용해야 한다.</p>
+<p>등록한 timeout과 interval을 한꺼번에 제거하는 메소드는 없다. 구현해서 사용해야 한다.</p>
 
 <pre><code>// clear "all" timeouts
 for(var i = 1; i &lt; 1000; i++) {
@@ -1516,7 +1531,17 @@ for(var i = 1; i &lt; 1000; i++) {
 }
 </code></pre>
 
-<p>Id가 1부터 1000 사이에 있는 timeout들을 삭제했지만, 그 외의 것은 아직 남아있다. 완벽하게 구현하려면 만들어진 timeout id를 모두 저장했다가 삭제해야 한다.</p>
+<p>Id가 1부터 1000 사이에 있는 timeout들을 제거했지만, 그 외의 것은 아직 남아있다. 또 다른 방법이 있다. <code>setTimeout</code>은 항상 호출될 때마다 전보다 1만큼 큰 수를 ID로 반환한다. 이 점을 이용해 1부터 가장최근 ID까지 모두 삭제할 수 있다.</p>
+
+<pre><code>// clear "all" timeouts
+var biggestTimeoutId = window.setTimeout(function(){}, 1),
+i;
+for(i = 1; i &lt;= biggestTimeoutId; i++) {
+    clearTimeout(i);
+}
+</code></pre>
+
+<p>이 방법은 모든 주요 브라우저에서 문제없이 잘 동작한다. 하지만 ID가 항상 순차적이어야 한다고 표준에 명시된 것이 아니다. 그러므로 timeout ID를 모두 저장했다가 삭제하는 것이 가장 안전하다. 그러면 전부 깨끗하게 제거할 수 있다.</p>
 
 </div><div><h3>숨겨진 <code>eval</code></h3>
 
@@ -1546,7 +1571,7 @@ bar();
 <pre><code>function foo(a, b, c) {}
 
 // 절대 사용하면 안 됨
-setTimeout(&#39;foo(1,2, 3)&#39;, 1000)
+setTimeout(&#39;foo(1, 2, 3)&#39;, 1000)
 
 // 대신 익명 함수를 사용하는 게 좋다.
 setTimeout(function() {
@@ -1555,7 +1580,7 @@ setTimeout(function() {
 </code></pre>
 
 <aside>
-  <p><strong>Note:</strong> <code>setTimeout(foo, 1000, a, b, c)</code>처럼 사용하는 것도 가능하지만, 이것도 권장하지 않는다. 메소드를 사용할 때 미묘한 에러가 날 수 있다.</p>
+  <p><strong>Note:</strong> <code>setTimeout(foo, 1000, a, b, c)</code>처럼 사용하는 것도 가능하지만, 이것도 권장하지 않는다. <a href="#function.this">메소드</a>를 사용할 때 잡아내기 어려운 에러가 날 수 있다.</p>
 </aside>
 
 </div><div><h3>결론</h3>

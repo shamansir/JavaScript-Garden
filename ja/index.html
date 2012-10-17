@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="ja"><head><title>JavaScript Garden</title><meta charset="utf-8"><meta name="description" content="JavaScriptの奇妙さと欠陥についてのガイドライン"><link rel="stylesheet" href="../style/garden.css" media="all"><link rel="stylesheet" href="../style/print.css" media="print"><!--[if lt IE 9]>
 <script src="javascript/html5.js"></script>
 <![endif]-->
-</head><body><!-- Navigation--><nav id="nav_main"><div><ul><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li class="active"><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">前書き</a></h1><ul></ul></li><li class="nav_object"><h1><a href="#object">オブジェクト</a></h1><ul><li><a href="#object.general">オブジェクトの使用法とプロパティ</a></li><li><a href="#object.prototype">プロトタイプ</a></li><li><a href="#object.hasownproperty"><code>hasOwnProperty</code></a></li><li><a href="#object.forinloop"><code>for in</code>ループ</a></li></ul></li><li class="nav_function"><h1><a href="#function">関数</a></h1><ul><li><a href="#function.general">関数の宣言と式</a></li><li><a href="#function.this"><code>this</code>はどのように動作するのか</a></li><li><a href="#function.closures">クロージャと参照</a></li><li><a href="#function.arguments">オブジェクトの<code>arguments</code></a></li><li><a href="#function.constructors">コンストラクタ</a></li><li><a href="#function.scopes">スコープと名前空間</a></li></ul></li><li class="nav_array"><h1><a href="#array">配列</a></h1><ul><li><a href="#array.general">配列の繰り返しとプロパティ</a></li><li><a href="#array.constructor"><code>Array</code>コンストラクター</a></li></ul></li><li class="nav_types"><h1><a href="#types">型</a></h1><ul><li><a href="#types.equality">等価と比較</a></li><li><a href="#types.typeof"><code>typeof</code>演算子</a></li><li><a href="#types.instanceof"><code>instanceof</code>オペレーター</a></li><li><a href="#types.casting">型変換</a></li></ul></li><li class="nav_core"><h1><a href="#core">コア</a></h1><ul><li><a href="#core.eval">なぜ、<code>eval</code>を使ってはいけないのか</a></li><li><a href="#core.undefined"><code>undefined</code>と<code>null</code></a></li><li><a href="#core.semicolon">セミコロン自動挿入</a></li></ul></li><li class="nav_other"><h1><a href="#other">その他</a></h1><ul><li><a href="#other.timeouts"><code>setTimeout</code>と<code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>前書き</h1><div><p><strong>JavaScript Garden</strong> はJavaScriptというプログラム言語の一番奇妙な部分についてのドキュメント集です。
+</head><body><!-- Navigation--><nav id="nav_main"><div><ul><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li class="active"><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">前書き</a></h1><ul></ul></li><li class="nav_object"><h1><a href="#object">オブジェクト</a></h1><ul><li><a href="#object.general">オブジェクトの使用法とプロパティ</a></li><li><a href="#object.prototype">プロトタイプ</a></li><li><a href="#object.hasownproperty"><code>hasOwnProperty</code></a></li><li><a href="#object.forinloop"><code>for in</code>ループ</a></li></ul></li><li class="nav_function"><h1><a href="#function">関数</a></h1><ul><li><a href="#function.general">関数の宣言と式</a></li><li><a href="#function.this"><code>this</code>はどのように動作するのか</a></li><li><a href="#function.closures">クロージャと参照</a></li><li><a href="#function.arguments">オブジェクトの<code>arguments</code></a></li><li><a href="#function.constructors">コンストラクタ</a></li><li><a href="#function.scopes">スコープと名前空間</a></li></ul></li><li class="nav_array"><h1><a href="#array">配列</a></h1><ul><li><a href="#array.general">配列の繰り返しとプロパティ</a></li><li><a href="#array.constructor"><code>Array</code>コンストラクター</a></li></ul></li><li class="nav_types"><h1><a href="#types">型</a></h1><ul><li><a href="#types.equality">等価と比較</a></li><li><a href="#types.typeof"><code>typeof</code>演算子</a></li><li><a href="#types.instanceof"><code>instanceof</code>オペレーター</a></li><li><a href="#types.casting">型変換</a></li></ul></li><li class="nav_core"><h1><a href="#core">コア</a></h1><ul><li><a href="#core.eval">なぜ、<code>eval</code>を使ってはいけないのか</a></li><li><a href="#core.undefined"><code>undefined</code>と<code>null</code></a></li><li><a href="#core.semicolon">セミコロン自動挿入</a></li><li><a href="#core.delete"><code>delete</code>演算子</a></li></ul></li><li class="nav_other"><h1><a href="#other">その他</a></h1><ul><li><a href="#other.timeouts"><code>setTimeout</code>と<code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>前書き</h1><div><p><strong>JavaScript Garden</strong> はJavaScriptというプログラム言語の一番奇妙な部分についてのドキュメント集です。
 このドキュメントはJavaScriptという言語に慣れていないプログラマーがこの言語について深く知ろうとする際に遭遇する、良くある間違い・小さなバグ・パフォーマンスの問題・悪い習慣などを避ける為のアドバイスを与えます。</p>
 
 <p>JavaScript GardenはJavaScriptを教える事を<strong>目的にしていません</strong>。このガイドの項目を理解する為には、この言語に対する前提知識がある事を推奨します。この言語の基礎部分についてはMozilla Developer Networkの<a href="https://developer.mozilla.org/en/JavaScript/Guide">ガイド</a> がオススメです。 </p>
@@ -28,7 +28,7 @@
 またStack Overflowチャットの<a href="http://chat.stackoverflow.com/rooms/17/javascript">JavaScript room</a>に私達はいます。</p></div></header><!-- Articles--></section><section id="object"><!-- Introduction--><header id="object.intro"><h1>オブジェクト</h1></header><!-- Articles--><article id="object.general"><h2>オブジェクトの使用法とプロパティ</h2><div><p>JavaScriptの全ての要素は2つの例外を除いて、オブジェクトのように振る舞います。
 その2つとは<a href="#core.undefined"><code>null</code></a>と<a href="#core.undefined"><code>undefined</code></a>です。</p>
 
-<pre><code>false.toString() // &#39;false&#39;
+<pre><code>false.toString(); // &#39;false&#39;
 [1, 2, 3].toString(); // &#39;1,2,3&#39;
 
 function Foo(){}
@@ -151,7 +151,7 @@ test [instance of Bar]
                 { toString: ... /* その他 */ }
 </code></pre>
 
-<p>上記では<code>test</code>は<code>Bar.prototype</code>と<code>Foo.prototype</code>の2つのオブジェクトより継承されます。その為<code>Foo</code>の中で設定された<code>method</code>関数にアクセスできるようになります。また、<code>Foo</code>のプロトタイプとしてのインスタンス<strong>それ自体</strong>の<code>value</code>プロパティにもアクセスが可能です。<code>new Bar()</code>は<code>Foo</code>のインスタンスを新しく作ら<strong>ない</strong>という事は非常に注目されるべき点ですが、それ自身のプロトタイプを再利用しています。従って全ての<code>Bar</code>インスタンスは<strong>同じ</strong><code>value</code>プロパティを共有します。</p>
+<p>上記では<code>test</code>は<code>Bar.prototype</code>と<code>Foo.prototype</code>の2つのオブジェクトより継承されます。その為<code>Foo</code>の中で設定された<code>method</code>関数にアクセスできるようになります。また、<code>Foo</code>のプロトタイプとしてのインスタンス<strong>それ自体</strong>の<code>value</code>プロパティにもアクセスが可能です。<code>new Bar()</code>は<code>Foo</code>のインスタンスを新しく作<strong>りません</strong>が、プロトタイプに割り合てられた<code>Foo</code>インスタンスを再利用している事は注目に値します。従って全ての<code>Bar</code>インスタンスは<strong>同じ</strong><code>value</code>プロパティを共有します。</p>
 
 <aside>
   <p><strong>注意:</strong> <code>Bar.prototype = Foo</code>のような使い方は<strong>しない</strong>で下さい。<code>Foo</code>はそのプロトタイプではなく、
@@ -168,13 +168,13 @@ test [instance of Bar]
 
 </div><div><h3>プロトタイププロパティ</h3>
 
-<p>プロトタイププロパティはJavaScriptの中でプロトタイプチェーンを構築する為に使われていますが、<strong>任意</strong>の値を代入する事も可能になっています。この時プロトタイプに代入されている値は単に無視されるだけです。</p>
+<p>プロトタイププロパティはJavaScriptの中でプロトタイプチェーンを構築する為に使われていますが、<strong>任意</strong>の値を代入する事も可能になっています。しかし、プロトタイプとしてプリミティブが代入された場合は単に無視されるだけです。</p>
 
 <pre><code>function Foo() {}
 Foo.prototype = 1; // 効果無し
 </code></pre>
 
-<p>割り当てられているオブジェクトは上記の例で示されている通りに動作し、動的にプロトタイプチェーンを作ります。</p>
+<p>オブジェクトの代入は上記の例のように動作し、動的にプロトタイプチェーンを作る事ができます。</p>
 
 </div><div><h3>パフォーマンス</h3>
 
@@ -240,7 +240,7 @@ foo.hasOwnProperty(&#39;bar&#39;); // 常にfalseを返す
 そうする事により組み込みの<a href="#object.prototype">prototypes</a>の拡張が原因のエラーを避ける事が出来ます。</p></div></article><article id="object.forinloop"><h2><code>for in</code>ループ</h2><div><p><code>in</code>オペレーターは単に、<code>for in</code>ループの中でオブジェクトのプロパティをプロトタイプチェーンの中で繰り返し遡る為にあるものです。</p>
 
 <aside>
-  <p><strong>注意:</strong> <code>for in</code>ループは<code>列挙</code>される属性が<code>false</code>にセットされているプロパティを反復処理<strong>しません</strong>。;
+  <p><strong>注意:</strong> <code>for in</code>ループは<code>enumerable</code>属性が<code>false</code>にセットされているプロパティを反復処理<strong>しません</strong>。;
   例えば、配列の<code>length</code>プロパティなどがそれに当たります。</p>
 </aside>
 
@@ -279,7 +279,7 @@ for(var i in foo) {
 
 </div><div><h3>終わりに</h3>
 
-<p><strong>常に</strong><code>hasOwnProperty</code>を使用する事を推奨します。コードの実行環境や、組み込みのプロトタイプが拡張されているかどうかを仮定して書くようなコードを絶対書いてはいけません。</p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>関数</h1></header><!-- Articles--><article id="function.general"><h2>関数の宣言と式</h2><div><p>関数はJavaScriptの第一級オブジェクトです。この事は、その他の値と同じように渡す事が出来るという事です。この機能で良く使われる一つとして<strong>匿名関数</strong>を他のオジェクトにコールバックとして渡すというものがあり、これで非同期での実装が可能になります。</p>
+<p><strong>常に</strong><code>hasOwnProperty</code>を使用する事を推奨します。コードの実行環境や、組み込みのプロトタイプが拡張されているかどうかを仮定して書くようなコードを絶対書いてはいけません。</p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>関数</h1></header><!-- Articles--><article id="function.general"><h2>関数の宣言と式</h2><div><p>関数はJavaScriptの第一級オブジェクトです。この事は、その他の値と同じように渡す事が出来るという事です。この機能で良く使われる一つとして<strong>匿名関数</strong>を他のオブジェクトにコールバックとして渡すというものがあり、これで非同期での実装が可能になります。</p>
 
 </div><div><h3><code>関数</code>宣言</h3>
 
@@ -308,9 +308,9 @@ var foo = function() {};
 
 <p>しかし、コードの実行時にのみこの割り当てがされるため、<code>foo</code>という変数は対応するコードが実行される前にデフォルト値である<a href="#core.undefined">undefined</a>が代入されるのです。</p>
 
-</div><div><h3>名前付き関数宣言</h3>
+</div><div><h3>名前付き関数式</h3>
 
-<p>他に特殊なケースとして、命名関数があります。</p>
+<p>他に特殊なケースとして、名前付き関数があります。</p>
 
 <pre><code>var foo = function bar() {
     bar(); // 動作する
@@ -318,7 +318,7 @@ var foo = function() {};
 bar(); // ReferenceError
 </code></pre>
 
-<p>この場合の<code>bar</code>は<code>foo</code>に対して関数を割り当てるだけなので、外部スコープでは使用できません。しかし、<code>bar</code>は内部では使用できます。これはJavaScriptでは<a href="#function.scopes">名前解決</a>による動作です。関数名は<em>いつも</em>関数自体のローカルスコープ内で有効になっています。</p></div></article><article id="function.this"><h2><code>this</code>はどのように動作するのか</h2><div><p>JavaScriptの<code>this</code>と名付けられた特殊なキーワードは他のプログラム言語と違うコンセプトを持っています。JavaScriptの<code>this</code>は正確に<strong>5個</strong>の別々の使い道が存在しています。</p>
+<p>この場合の<code>bar</code>は<code>foo</code>に対して関数を割り当てるだけなので、外部スコープでは使用できません。しかし、<code>bar</code>は内部では使用できます。これはJavaScriptの<a href="#function.scopes">名前解決</a>の方法によるもので、関数名は<em>いつも</em>関数自身のローカルスコープ内で有効になっています。</p></div></article><article id="function.this"><h2><code>this</code>はどのように動作するのか</h2><div><p>JavaScriptの<code>this</code>と名付けられた特殊なキーワードは他のプログラム言語と違うコンセプトを持っています。JavaScriptの<code>this</code>は正確に<strong>5個</strong>の別々の使い道が存在しています。</p>
 
 </div><div><h3>グローバルスコープとして</h3>
 
@@ -419,7 +419,7 @@ Bar.prototype = Foo.prototype;
 new Bar().method();
 </code></pre>
 
-<p><code>method</code>が<code>Bar</code>のインスタンスにより呼び出された時に、<code>this</code>はまさにそのインスタンスを参照するようになります。</p></div></article><article id="function.closures"><h2>クロージャと参照</h2><div><p>JavaScriptの一番パワフルな特徴の一つとして<em>クロージャ</em>が使える事が挙げられます。これはスコープが<strong>いつも</strong>外部に定義されたスコープにアクセスできるという事です。JavaScriptの唯一のスコープは<a href="#function.scopes">関数スコープ</a>ですが、全ての関数は標準でクロージャとして振る舞います。</p>
+<p><code>method</code>が<code>Bar</code>のインスタンスにより呼び出された時に、<code>this</code>はまさにそのインスタンスを参照するようになります。</p></div></article><article id="function.closures"><h2>クロージャと参照</h2><div><p>JavaScriptの一番パワフルな特徴の一つとして<em>クロージャ</em>が使える事が挙げられます。これはスコープが自身の定義されている外側のスコープに<strong>いつでも</strong>アクセスできるという事です。JavaScriptの唯一のスコープは<a href="#function.scopes">関数スコープ</a>ですが、全ての関数は標準でクロージャとして振る舞います。</p>
 
 </div><div><h3>プライベート変数をエミュレートする</h3>
 
@@ -453,7 +453,7 @@ foo.hack = function() {
 };
 </code></pre>
 
-<p>上記のコードは<code>Counter</code>のスコープ中にある変数<code>count</code>の値を変更する事は<strong>ありません</strong>。<code>foo.hack</code>は<strong>その</strong>スコープで定義されていないからです。これは<em>グローバル</em>変数<code>count</code>の作成 -またはオーバーライド- の代わりになるでしょう。</p>
+<p>上記のコードは<code>Counter</code>のスコープ中にある変数<code>count</code>の値を変更する事は<strong>ありません</strong>。<code>foo.hack</code>は<strong>その</strong>スコープで定義されていないからです。これは(<code>Counter</code>内の変数<code>count</code>の変更)の代わりに<em>グローバル</em>変数<code>count</code>の作成 -または上書き- する事になります。</p>
 
 </div><div><h3>ループ中のクロージャ</h3>
 
@@ -487,9 +487,9 @@ foo.hack = function() {
 
 <p>外部の匿名関数は<code>i</code>を即座に第一引数として呼び出し、引数<code>e</code>を<code>i</code>の<strong>値</strong>のコピーとして受け取ります。</p>
 
-<p><code>e</code>を参照している<code>setTimeout</code>を受け取った匿名関数はループによって値が変わる事が<strong>ありません</strong>。</p>
+<p><code>e</code>を参照している<code>setTimeout</code>を受け取った匿名関数はループによって値が変わる事が<strong>ありません。</strong></p>
 
-<p>他にこのような事を実現する方法があります。それは匿名ラッパーから関数を返してあげる事です。これは上記のコードと同じような効果があります。</p>
+<p>他にこのような事を実現する方法があります。それは匿名ラッパーから関数を返してあげる事です。これは上記のコードと同じ振る舞いをします。</p>
 
 <pre><code>for(var i = 0; i &lt; 10; i++) {
     setTimeout((function(e) {
@@ -502,7 +502,7 @@ foo.hack = function() {
 
 <aside>
   <p><strong>注意:</strong> <code>arguments</code>が既に<code>var</code>や正式なパラメーターにより
-  関数のスコープが定義されている場合は
+  関数のスコープ内部で定義されている場合は
   <code>arguments</code>オブジェクトは作られません。</p>
 </aside>
 
@@ -599,7 +599,7 @@ function bigLoop() {
   <code>Typeerror</code>が返るようになっています。</p>
 </aside></div></article><article id="function.constructors"><h2>コンストラクタ</h2><div><p>JavaScriptのコンストラクタは色々ある他のプログラム言語とは一味違います。<code>new</code>キーワードが付いているどんな関数呼び出しも、コンストラクタとして機能します。</p>
 
-<p>コンストラクタ内部では -呼び出された関数の事です- <code>this</code>の値は新規に生成された<code>Object</code>を参照しています。この<strong>新規</strong>のオブジェクトの<a href="#object.prototype"><code>prototype</code></a>は、コンストラクタとして起動した関数オブジェクトの<code>prototype</code>として設定されています。</p>
+<p>コンストラクタ内部では -呼び出された関数の事です- <code>this</code>の値は新規に生成された<code>Object</code>を参照しています。この<strong>新規</strong>のオブジェクトの<a href="#object.prototype"><code>prototype</code></a>は、コンストラクタとして起動した関数オブジェクトの<code>prototype</code>に設定されています。</p>
 
 <p>もし呼び出された関数が、<code>return</code>ステートメントを明示していない場合は、暗黙の了解で<code>this</code>の値を -新規のオブジェクトとして- 返します。</p>
 
@@ -614,9 +614,9 @@ Foo.prototype.test = function() {
 var test = new Foo();
 </code></pre>
 
-<p>上記で<code>Foo</code>はコンストラクタとして呼び出され、<code>Foo.prototype</code>として新規に生成された<code>prototype</code>を設定されています。</p>
+<p>上記は、<code>Foo</code>をコンストラクタとして呼び出し、新規に生成されたオブジェクトの<code>prototype</code>を<code>Foo.prototype</code>に設定しています。</p>
 
-<p>明示的に<code>return</code>ステートメントがある場合、<code>Object</code>の値を返す<strong>だけでなく</strong>関数はこのステートメントを返します。</p>
+<p>明示的に<code>return</code>ステートメントがある場合、関数は返り値が<code>Object</code>である場合に<strong>限り</strong>ステートメントで明示した値を返します。</p>
 
 <pre><code>function Bar() {
     return 2;
@@ -641,7 +641,7 @@ new Test(); // 返ってきたオブジェクト
 Foo(); // undefinedが返る
 </code></pre>
 
-<p>上記の例では、いくつかのケースでは動作するように見える場合があります。JavaScriptの<a href="#function.this"><code>this</code></a>の働きのせいで、<em>グローバルオブジェクト</em>が<code>this</code>の値として使用されるからです。</p>
+<p>JavaScriptの<a href="#function.this"><code>this</code></a>の働きのせいで、上記の例ではいくつかのケースでは動作するように見える場合がありますが、それは<em>グローバルオブジェクト</em>が<code>this</code>の値として使用されるからです。</p>
 
 </div><div><h3>ファクトリー</h3>
 
@@ -665,15 +665,15 @@ Bar();
 
 <p><code>Bar</code>で呼び出されたものは両方とも全く同じものものになります。これには、<code>method</code>と呼ばれるプロパティを持ったオブジェクトが新しく生成されますが、これは<a href="#function.closures">クロージャ</a>です。</p>
 
-<p>また、注意する点として呼び出された<code>new Bar()</code>は返ってきたオブジェクトのプロトタイプに影響<strong>しません</strong>。プロトタイプが新しく生成されたオブジェクトにセットされるまで、<code>Bar</code>は絶対に新しいオブジェクトを返さないのです。</p>
+<p>また、注意する点として呼び出された<code>new Bar()</code>は返ってきたオブジェクトのプロトタイプに影響<strong>しません</strong>。プロトタイプは新しく生成されたオブジェクトにセットされはしますが、<code>Bar</code>は絶対にその新しいオブジェクトを返さないのです。</p>
 
 <p>上記の例では、<code>new</code>キーワードの使用の有無は機能的に違いがありません。</p>
 
 </div><div><h3>ファクトリーとして新しくオブジェクトを作成する</h3>
 
-<p>大半の場合に推奨されるのは、<code>new</code>の付け忘れによるバグを引き起こしやすいので使用<strong>しない</strong>事です。</p>
+<p>多くの場合に推奨される事として、<code>new</code>の付け忘れによるバグを引き起こしやすいので、<code>new</code>を使用<strong>しない</strong>ようにするという事があります。</p>
 
-<p>新しいオブジェクトを作成するためにファクトリーを使用するか、そのファクトリー内部に新しいオブジェクトを構築する必要があります。</p>
+<p>新しいオブジェクトを作成するためにファクトリーを使用して、そのファクトリー内部に新しいオブジェクトを作成すべきだという事です。</p>
 
 <pre><code>function Foo() {
     var obj = {};
@@ -701,7 +701,7 @@ Bar();
 
 </div><div><h3>終わりに</h3>
 
-<p><code>new</code>キーワードが省略される事により、バグの可能性がもたらされますがプロトタイプを使わない確実な理由には<strong>なりません</strong>。最終的には、アプリケーションの必要性により、どちらの解決法がより良いかが決まってきます。特に大切なのは、オブジェクトの作成に特定のスタイルを選ぶ事、また<strong>そのスタイルに固執する事</strong>です。</p></div></article><article id="function.scopes"><h2>スコープと名前空間</h2><div><p>JavaScriptはブロックに2つのペアの中括弧を使うのが素晴しいですが、これはブロックスコープをサポートして<strong>いません</strong>。その為、この言語に残されているのは<em>関数スコープ</em>だけです。</p>
+<p><code>new</code>キーワードが省略される事によりバグの可能性がもたらされますが、それによりプロトタイプを全く使わないという確かな理由には<strong>なりません</strong>。最終的には、アプリケーションの必要性により、どちらの解決法がより良いかが決まってきます。特に大切なのは、オブジェクトの作成に特定のスタイルを選ぶ事、また<strong>そのスタイルに固執する事</strong>です。</p></div></article><article id="function.scopes"><h2>スコープと名前空間</h2><div><p>JavaScriptはブロックに2つのペアの中括弧を使うのが素晴しいですが、これはブロックスコープをサポートして<strong>いません</strong>。その為、この言語に残されているのは<em>関数スコープ</em>だけです。</p>
 
 <pre><code>function test() { // スコープ
     for(var i = 0; i &lt; 10; i++) { // スコープではない
@@ -713,7 +713,7 @@ Bar();
 
 <aside>
   <p><strong>注意:</strong> 代入が使用されてない時、return文や関数の引数、<code>{...}</code>表記はブロック文として
-  解釈されて、オブジェクトリテラルトは<strong>なりません</strong>。これは<a href="#core.semicolon">セミコロン自動挿入</a>
+  解釈されて、オブジェクトリテラルとは<strong>なりません</strong>。これは<a href="#core.semicolon">セミコロン自動挿入</a>
   と連動して奇妙なエラーを引き起こすことになります。</p>
 </aside>
 
@@ -732,7 +732,7 @@ var foo = &#39;42&#39;
 
 <p>上記の2つのスクリプトは同じ効果を持って<strong>いません</strong>。スクリプト Aは<code>foo</code>と呼ばれる変数を、<em>グローバル</em>スコープに定義しており、スクリプト Bは<code>foo</code>を<em>現在</em>のスコープで定義ています。</p>
 
-<p>再び、<code>var</code>が重大な影響を持っていない、<em>同じ効果</em>では<strong>無い</strong>スクリプトになります。</p>
+<p>繰り返しますが、この2つのスクリプトは<em>同じ影響</em>を全く持って<strong>いない</strong>スクリプトになります。<code>var</code>を使用しない事は重大な意味を持ちます。</p>
 
 <pre><code>// グローバルスコープ
 var foo = 42;
@@ -744,10 +744,10 @@ test();
 foo; // 21
 </code></pre>
 
-<p><code>test</code>関数の中の<code>var</code>ステートメントを省略すると<code>foo</code>の値をオーバーライドします。最初の内は大した事ではないように思いますが、JavaScriptが何千行規模になると、<code>var</code>を使っていない事で恐怖とバグの追跡の困難さを招くことになります。</p>
+<p><code>test</code>関数の中の<code>var</code>ステートメントを省略すると<code>foo</code>の値をオーバーライドします。最初の内は大した事ではないように思いますが、JavaScriptが何千行規模になると、<code>var</code>を使っていない事でバグの追跡が酷く困難になります。</p>
 
 <pre><code>// グローバルスコープ
-var items = [/* 同じリスト */];
+var items = [/* 何かのリスト */];
 for(var i = 0; i &lt; 10; i++) {
     subLoop();
 }
@@ -760,11 +760,11 @@ function subLoop() {
 }
 </code></pre>
 
-<p>外側のループは<code>subloop</code>が最初に呼ばれた後に終了します。なぜなら、<code>subloop</code>がグローバル変数<code>i</code>の値で上書きされているからです。2番目の<code>for</code>ループに<code>var</code>を使用する事によって簡単にこのエラーを回避する事ができます。<code>var</code>ステートメントは<em>希望する影響</em>を外側のスコープに与える場合を除いては、<strong>絶対</strong>に残してはいけません。</p>
+<p>外側のループは<code>subloop</code>が最初に呼ばれた後に終了します。なぜなら、<code>subloop</code>がグローバル変数<code>i</code>の値で上書きされているからです。2番目の<code>for</code>ループに<code>var</code>を使用する事によって簡単にこのエラーを回避する事ができます。<em>目的とする効果</em>を外側のスコープに与えようとしない限り、<strong>絶対</strong>に<code>var</code>ステートメントは省略してはいけません。</p>
 
 </div><div><h3>ローカル変数</h3>
 
-<p>JavaScriptのローカル変数の為の唯一のソースは<a href="#function.general">function</a>パラメーターと<code>var</code>ステートメントを宣言された変数になります。</p>
+<p>JavaScriptのローカル変数の為の唯一の作成方法は<a href="#function.general">function</a>パラメーターと<code>var</code>ステートメントによって宣言された変数になります。</p>
 
 <pre><code>// グローバルスコープ
 var foo = 1;
@@ -781,11 +781,11 @@ function test(i) {
 test(10);
 </code></pre>
 
-<p><code>foo</code>と<code>i</code>は、関数<code>test</code>のスコープ内のローカル変数ですが、<code>bar</code>の割り当ては同じ名前のグローバル変数で上書きされてしまいます。</p>
+<p><code>foo</code>と<code>i</code>は、関数<code>test</code>のスコープ内のローカル変数ですが、<code>bar</code>の代入は同じ名前でグローバル変数で上書きしてしまいます。</p>
 
 </div><div><h3>巻き上げ</h3>
 
-<p>JavaScriptの<strong>巻き上げ</strong>宣言。この言葉の意味は<code>var</code>ステートメントと<code>function</code>宣言が、それらの外側のスコープに移動するというものです。</p>
+<p>JavaScriptは宣言を<strong>巻き上げ</strong>ます。これは<code>var</code>ステートメントと<code>function</code>宣言が、それらを含むスコープの一番先頭に移動するという事を意味します。</p>
 
 <pre><code>bar();
 var bar = function() {};
@@ -805,7 +805,7 @@ function test(data) {
 }
 </code></pre>
 
-<p>上記のコードは何も実行されないうちに変換されてしまいます。JavaScriptは<code>var</code>ステートメントと同じように、直近で囲んでいる<code>function</code>宣言を先頭に移動させます。</p>
+<p>上記のコードは、実行を開始する前に変換されてしまいます。JavaScriptは<code>var</code>ステートメントと同じように、直近で囲んでいる<code>function</code>宣言を先頭に移動させます。</p>
 
 <pre><code>// varステートメントはここに移動する
 var bar, someValue; // &#39;undefined&#39;がデフォルト
@@ -831,7 +831,7 @@ bar = function() {};
 test();
 </code></pre>
 
-<p>ブロックスコープの欠落はループ外の<code>var</code>ステートメントの移動だけでなく、その本体も移動させます。これはまた<code>if</code>が直感的じゃない結果になってしまいます。</p>
+<p>ブロックスコープの欠落は<code>var</code>ステートメントをループやボディの外に移動するだけでなく、<code>if</code>の構成を直感的ではないものにしてしまいます。</p>
 
 <p>元のコードの中の<code>if</code>ステートメントは<em>グローバル変数</em>である<code>goo</code>も変更しているように見えますが、実際には -巻き上げが適用された後に- <em>ローカル変数</em>を変更しています。</p>
 
@@ -843,7 +843,7 @@ if (!SomeImportantThing) {
 }
 </code></pre>
 
-<p>しかし、勿論上記の動きは<code>val</code>ステートメントが<em>グローバルスコープ</em>の上に移動しているという事実に基づいています。</p>
+<p>しかし、勿論上記の動きは<code>var</code>ステートメントが<em>グローバルスコープ</em>の上に移動しているという事実に基づいています。</p>
 
 <pre><code>var SomeImportantThing;
 
@@ -859,7 +859,7 @@ if (!SomeImportantThing) {
 
 <p>JavaScriptの<em>グローバルスコープ</em>を含む、全てのスコープは、<em>現在のオブジェクト</em>を参照している特殊な名前<a href="#function.this"><code>this</code></a>を持っています。</p>
 
-<p>関数スコープはまた、関数を通過してきた引数を含んでいる<a href="#function.arguments"><code>arguments</code></a>という名前も持っています。</p>
+<p>関数スコープはまた、<a href="#function.arguments"><code>arguments</code></a>という名前も持っています。それは関数スコープの中で定義され、関数に渡された引数を含んでいます。</p>
 
 <p>例として、関数の中で<code>foo</code>と命名された変数にアクセスしようとする場合を考えましょう。JavaScriptは以下の順番で、その名前を探索しようとします。</p>
 
@@ -908,7 +908,7 @@ function() {}
 
 <p>自身の名前空間にカプセル化する為に常に<em>匿名関数ラッパー</em>を使用する事を推奨します。これは、コードを名前衝突から守る為だけでなく、プログラムのより良いモジュール化の為でもあります。</p>
 
-<p>さらに、グローバル変数の使用は<strong>悪い習慣</strong>と考えられています。<strong>一回</strong>でもグローバル変数を使用するとエラーが発生しやすく、メンテナンスがしにくいコードになってしまいます。</p></div></article></section><section id="array"><!-- Introduction--><header id="array.intro"><h1>配列</h1></header><!-- Articles--><article id="array.general"><h2>配列の繰り返しとプロパティ</h2><div><p>JavaScriptの配列もまたオブジェクトですので<a href="#object.forinloop"><code>for in ループ</code></a>を配列の繰り返しで使用するような理由はありません。実際、配列に<code>for in</code>を使用<strong>しない</strong>為の正当な理由はたくさんあります。</p>
+<p>さらに、グローバル変数の使用は<strong>悪い習慣</strong>と考えられています。<strong>一回</strong>でもグローバル変数を使用するとエラーが発生しやすく、メンテナンスがしにくいコードになってしまいます。</p></div></article></section><section id="array"><!-- Introduction--><header id="array.intro"><h1>配列</h1></header><!-- Articles--><article id="array.general"><h2>配列の繰り返しとプロパティ</h2><div><p>JavaScriptの配列もまたオブジェクトですが、<a href="#object.forinloop"><code>for in ループ</code></a>を配列の繰り返し処理で使用することの良い理由は1つもありません。実際、配列に<code>for in</code>を使用<strong>しない</strong>為の正当な理由はたくさんあります。</p>
 
 <aside>
   <p><strong>注意:</strong> JavaScriptの配列は<em>連想配列</em>では<strong>ありません</strong>。JavaScriptは<a href="#object.general">objects</a>だけがキーバリューをマッピングするものです。
@@ -927,11 +927,11 @@ for(var i = 0, l = list.length; i &lt; l; i++) {
 }
 </code></pre>
 
-<p>上記の例では一つ余分に変数がありますが、それは配列の長さを取るための<code>l = list.length</code>の部分です。</p>
+<p>上記の例では1つ追加の仕掛けがありますが、それは<code>l = list.length</code>によって配列の長さをキャッシュする部分です。</p>
 
-<p>また、<code>length</code>プロパティは配列自身に定義されていますが、ループのそれぞれの繰り返しで探索する為のオーバーヘッドがまだあります。最近のJavaScriptエンジンはこのような場合に最適化する<strong>はず</strong>です。新しいエンジンか古いエンジンで実行されるかどうかをコードが知る方法はありません。</p>
+<p><code>length</code>プロパティは配列自身に定義されてはいますが、ループ中の繰り返しで毎回これを参照してしまうと、やはりオーバーヘッドが存在してしまいます。最近のJavaScriptエンジンはこのような場合に最適化する<strong>はず</strong>ですが、コードが新しいエンジンで実行されるかどうか、知る方法はありません。</p>
 
-<p>実際には、キャッシュを抜きにするとループの結果はキャッシュされたものに比べて、<strong>半分だけ高速</strong>になっています。</p>
+<p>実際には、キャッシュを抜きにするとループの結果はキャッシュされたものに比べてたった<strong>半分の速度</strong>にしかなりません。</p>
 
 </div><div><h3><code>length</code>プロパティ</h3>
 
@@ -973,7 +973,7 @@ arr[1]; // undefined
 
 </div><div><h3>終わりに</h3>
 
-<p><code>Array</code>コンストラクターの使用は出来る限り避けてください。リテラルが当然望ましい形です。それらは、短かく明快な文法にもってるいる為に、コードの可読性を高めてくれます。</p></div></article></section><section id="types"><!-- Introduction--><header id="types.intro"><h1>型</h1></header><!-- Articles--><article id="types.equality"><h2>等価と比較</h2><div><p>JavaScriptはオブジェクトの値の等価の比較方法が2種類持っています。</p>
+<p><code>Array</code>コンストラクターの使用は出来る限り避けてください。リテラルが当然望ましい形です。それらは、短かく明快な文法にもってるいる為に、コードの可読性を高めてくれます。</p></div></article></section><section id="types"><!-- Introduction--><header id="types.intro"><h1>型</h1></header><!-- Articles--><article id="types.equality"><h2>等価と比較</h2><div><p>JavaScriptはオブジェクトの値の等価の比較方法を2種類持っています。</p>
 
 </div><div><h3>等価演算子</h3>
 
@@ -1026,7 +1026,7 @@ var foo = {};
 foo === foo;                 // true
 </code></pre>
 
-<p>これら2つの演算子は<strong>同一性</strong>と等価<strong>ではない</strong>事を比較しています。これは、これらの演算子はPythonの<code>is</code>演算子やCのポインター比較と同じように、同じオブジェクトの<strong>インスタンス</strong>を比較するという事になります。</p>
+<p>これら2つの演算子は<strong>同一性</strong>を比較していているのであって、等価を比較しているわけでは<strong>ありません</strong>。これは、これらの演算子はPythonの<code>is</code>演算子やCのポインター比較と同じように、同じオブジェクトの<strong>インスタンス</strong>を比較するという事になります。</p>
 
 </div><div><h3>終わりに</h3>
 
@@ -1062,7 +1062,7 @@ new RegExp("meow")  RegExp     object (Nitro/V8ではfunction)
 new Object()        Object     object
 </code></pre>
 
-<p>上記のテーブルの<em>Type</em>は値を参照しており、<code>typeof</code>演算子が返ってきます。はっきりと分かるように、この値はどれでも一貫しています。</p>
+<p>上記のテーブルにおいて<em>Type</em>は<code>typeof</code>演算子が返す値を参照しています。はっきりと分かるように、この値はどれでも一貫しています。</p>
 
 <p><em>Class</em>はオブジェクト内部の<code>[[Class]]</code>プロパティの値を参照しています。</p>
 
@@ -1091,7 +1091,7 @@ is(&#39;String&#39;, new String(&#39;test&#39;)); // true
 
 <aside class="es5"><p><strong>ES5での注意点:</strong> 便宜上、ECMAScript 5では
   <code>Object.prototype.toString</code>の
-  <code>null</code>と<code>undefined</code>は<code>Object</code>から
+  <code>null</code>と<code>undefined</code>の返す値は<code>Object</code>から
   <code>Null</code>と<code>Undefined</code>に<strong>変更され</strong>ました。</p>
 </aside>
 
@@ -1132,7 +1132,7 @@ new String(&#39;foo&#39;) instanceof Object; // true
 &#39;foo&#39; instanceof Object; // false
 </code></pre>
 
-<p>ここで一つ重要な事は、この<code>instanceof</code>は異なるJavaScriptのコンテキストが起源のオブジェクト(例：ブラウザの異なるウィンドウ)では、そのコンストラクタが正確に同じオブジェクトになる訳では無いので、同じオブジェクトとして動作しないという事です。</p>
+<p>ここで1つ重要な事は、異なるJavaScriptのコンテキスト(例えば、ブラウザの異なるウィンドウ)を元としたオブジェクトでは、コンストラクタが厳密に同じものでは無い為に<code>instanceof</code>は上手く動作しません。</p>
 
 </div><div><h3>終わりに</h3>
 
@@ -1157,7 +1157,7 @@ isNaN(null) == false; // nullが0に変換される
   このような8進数のサポートはECMAScript5のstrict modeでは<strong>削除されました</strong>。</p>
 </aside>
 
-<p>上記の自体を避ける為に、<a href="#types.equality">strict equal operator</a>を使用する事を<strong>強く</strong>推奨します。また、これはたくさんある落し穴を避けますが、それでもまだJavaScriptの弱い型付けシステムから発生する色々な課題が残っています。</p>
+<p>上記の自体を避ける為に、<a href="#types.equality">厳格等価演算子</a>を使用する事を<strong>強く</strong>推奨します。また、これはたくさんある落し穴を避けますが、それでもまだJavaScriptの弱い型付けシステムから発生する色々な課題が残っています。</p>
 
 </div><div><h3>組み込み型のコンストラクタ</h3>
 
@@ -1236,7 +1236,7 @@ foo; // 3
 
 </div><div><h3>終わりに</h3>
 
-<p><code>eval</code>は絶対に使用しないでください。これを使用しているどんなコードも、その働き、パフォーマンスやセキュリティについて問われてしまいます。<code>eval</code>が必要な場合でも、最初の段階で使用<strong>しない</strong>でください。<em>より良いデザイン</em>を使用するべきで、それには<code>eval</code>を使う必要性はありません。</p></div></article><article id="core.undefined"><h2><code>undefined</code>と<code>null</code></h2><div><p>JavaScriptは<code>nothing</code>を表す2つの別個の値を持っています。<code>undefined</code>はこれら2つの内より便利な存在です。</p>
+<p><code>eval</code>は絶対に使用しないでください。これを使用しているどんなコードも、その働き、パフォーマンスやセキュリティについて問われてしまいます。<code>eval</code>が必要な場合でも、最初の段階で使用<strong>しない</strong>でください。<em>より良いデザイン</em>を使用するべきで、それには<code>eval</code>を使う必要性はありません。</p></div></article><article id="core.undefined"><h2><code>undefined</code>と<code>null</code></h2><div><p>JavaScriptは<code>nothing</code>を表す2つの別個の値を持っています。これら2つの内で<code>undefined</code>はより便利な存在です。</p>
 
 </div><div><h3><code>undefined</code>の値</h3>
 
@@ -1248,7 +1248,7 @@ foo; // 3
   ようになっています。しかし、この名前は<code>undefined</code>という名前の関数の例に痕跡が見られるだけです。</p>
 </aside>
 
-<p><code>undefined</code>が帰される時の例をいくつか挙げます。</p>
+<p><code>undefined</code>が返される時の例をいくつか挙げます。</p>
 
 <ul>
 <li>(未定義の)グローバル変数<code>undefined</code>にアクセスした時</li>
@@ -1256,7 +1256,7 @@ foo; // 3
 <li>何も返されない<code>return</code>がある時</li>
 <li>存在しないプロパティを探索する時</li>
 <li>関数のパラメーターで明示的な値が何も無い時</li>
-<li>全ての<code>undefined</code>が設定された値</li>
+<li><code>undefined</code>が設定された全ての値</li>
 </ul>
 
 </div><div><h3><code>undefined</code>の値に変更する処理</h3>
@@ -1373,9 +1373,9 @@ test()
 </code></pre>
 
 <aside>
-  <p><strong>注意点:</strong> JavaScriptパーサーは新しい行のreturn文を「正しく」返してはいないですが、
-  これは必要という訳では無いので自動セミコロン挿入の障害になります。
-  このお陰で不必要な副作用を無くす事にもなります。</p>
+  <p><strong>注意点:</strong> JavaScriptパーサーは、すぐ後に改行が続く return文を正しく扱いません。
+  これは必ずしも自動セミコロン挿入の欠点によるものではありませんが、
+  それもまた望まない副作用となりえます。</p>
 </aside>
 
 <p>パーサーは上記のコードの振舞いを劇的に変化させます。あるケースにおいては、<strong>間違っている事</strong>にもなってしまいます。</p>
@@ -1397,7 +1397,82 @@ test()
 
 </div><div><h3>終わりに</h3>
 
-<p>セミコロンを省略するのは<strong>絶対</strong>にお勧めしません。この事はまた括弧をその終端と一緒の行に書く事が推奨されてますし、1つの<code>if</code>や<code>else</code>文を絶対に省略してはなりません。これら両方の処理がコードの整合性を高めてくれる上、JavaScriptパーサーの振舞いを変えてしまうのを防いでくれるでしょう。</p></div></article></section><section id="other"><!-- Introduction--><header id="other.intro"><h1>その他</h1></header><!-- Articles--><article id="other.timeouts"><h2><code>setTimeout</code>と<code>setInterval</code></h2><div><p>JavaScriptは非同期なので、<code>setTimeout</code>と<code>setInterval</code>関数を使ってある関数の実行のスケジュールを決める事が可能です。</p>
+<p>セミコロンを省略するのは<strong>絶対</strong>にお勧めしません。括弧を対応する文と同じ行に記述すること、および一行の<code>if / else</code>文に対して括弧を省略しないことが推奨されています。これら両方の処理がコードの整合性を高めてくれるだけでなく、JavaScriptパーサーの振舞いを変えてしまうのを防いでくれるでしょう。</p></div></article><article id="core.delete"><h2><code>delete</code>演算子</h2><div><p>端的に言って、JavaScriptの関数やその他の要素は<code>DontDelete</code>属性が設定されているので、グローバル変数を消去する事は<em>不可能</em>です。</p>
+
+</div><div><h3>グローバルコードと関数コード</h3>
+
+<p>変数や、関数がグローバルまたは<a href="#function.scopes">関数スコープ</a>で定義された時は、そのプロパティは有効なオブジェクトかグローバルオブジェクトになります。このようなプロパティは属性のセットを持っていますが、それらの内の1つが<code>DontDelete</code>になります。変数や関数がグローバルや関数コードで宣言されると、常に<code>DontDelete</code>属性を作るために、消去できません。</p>
+
+<pre><code>// グローバル変数:
+var a = 1; // DontDelete属性が設定される
+delete a; // false
+a; // 1
+
+// 通常関数:
+function f() {} // DontDelete属性が設定される
+delete f; // false
+typeof f; // "function"
+
+// 再代入も役に立たない:
+f = 1;
+delete f; // false
+f; // 1
+</code></pre>
+
+</div><div><h3>明示的なプロパティ</h3>
+
+<p>普通にプロパティを消去できる方法が存在します：プロパティを明示的に設定するのです。</p>
+
+<pre><code>// プロパティを明示的に設定する
+var obj = {x: 1};
+obj.y = 2;
+delete obj.x; // true
+delete obj.y; // true
+obj.x; // undefined
+obj.y; // undefined
+</code></pre>
+
+<p>上記の例の中で、<code>obj.x</code>と<code>obj.y</code>はそれぞれ<code>DontDelete</code>属性が無い為に削除できます。これが下記の例でも動作する理由です。</p>
+
+<pre><code>// IE以外では、これも動作する
+var GLOBAL_OBJECT = this;
+GLOBAL_OBJECT.a = 1;
+a === GLOBAL_OBJECT.a; // true - ただのグローバルのvar
+delete GLOBAL_OBJECT.a; // true
+GLOBAL_OBJECT.a; // undefined
+</code></pre>
+
+<p>ここでは<code>a</code>. <a href="#function.this"><code>this</code></a>を消す為にグローバルオブジェクトと明示的に宣言した<code>a</code>をそのプロパティとして参照させて、消去する事を許可するトリックを使います。</p>
+
+<p>IE(最低でも6-8で)は多少のバグがある為に、上記のコードは動作しません。</p>
+
+</div><div><h3>関数の引数と組み込み引数</h3>
+
+<p>関数の通常の引数である、<a href="#function.arguments"><code>arguments</code> object</a>と組み込みのプロパティもまた、<code>DontDelete</code>が設定されています。</p>
+
+<pre><code>// 関数の引数とプロパティ:
+(function (x) {
+
+  delete arguments; // false
+  typeof arguments; // "object"
+
+  delete x; // false
+  x; // 1
+
+  function f(){}
+  delete f.length; // false
+  typeof f.length; // "number"
+
+})(1);
+</code></pre>
+
+</div><div><h3>ホストオブジェクト</h3>
+
+<p><code>delete</code>演算子の挙動はホストオブジェクトにとって予測不可能になりかねません。仕様によりホストオブジェクトは、あらゆる挙動の実行が許可されている為です。</p>
+
+</div><div><h3>終わりに</h3>
+
+<p><code>delete</code>演算子は、しばしば予期せぬ挙動をします。唯一安全な仕様方法は通常のオブジェクトに明示的に設定されたプロパティを扱う場合だけです。</p></div></article></section><section id="other"><!-- Introduction--><header id="other.intro"><h1>その他</h1></header><!-- Articles--><article id="other.timeouts"><h2><code>setTimeout</code>と<code>setInterval</code></h2><div><p>JavaScriptは非同期なので、<code>setTimeout</code>と<code>setInterval</code>関数を使ってある関数の実行のスケジュールを決める事が可能です。</p>
 
 <aside>
   <p><strong>注意点:</strong> タイムアウトはECMAScript標準の一部では<strong>ありません</strong>。
@@ -1408,9 +1483,9 @@ test()
 var id = setTimeout(foo, 1000); // Number &gt; 0を返す
 </code></pre>
 
-<p><code>setTimeout</code>が呼ばれた時に、タイムアウトのIDと<code>foo</code>この先の<strong>おおよそ</strong>1000msに実行するスケジュールを返します。<code>foo</code>は正確に<strong>1度</strong>だけ実行されます。</p>
+<p><code>setTimeout</code>が呼ばれた時に、タイムアウトのIDを返し、この先<strong>おおよそ</strong>1000ms以内に実行する<code>foo</code>をスケジュールします。<code>foo</code>は正確に<strong>1度</strong>だけ実行されます。</p>
 
-<p>コードが実行されているJavaScriptエンジンのタイマー分解能によって決まります。この事実はJavaScriptがシングルスレッドのなので、他のスレッドでの実行を妨害してしまう事があるかもしれません。これは、<code>setTimeout</code>の呼び出しにより指定された正確なディレイで実行するという確実な賭けという<strong>意味ではありません</strong>。</p>
+<p>これは、<code>setTimeout</code>関数の呼び出しで指定した遅延時間を正確に間違いなく得られるという<strong>事では決してありません</strong>。コードが実行されているJavaScriptエンジンのタイマー分解能によって決まります。この事実はJavaScriptがシングルスレッドなので、他のスレッドでの実行を妨害してしまう事があるかもしれません。</p>
 
 <p>第一パラメーターを渡された関数は<em>グローバルオブジェクト</em>によって呼び出されます。これは呼び出された関数の内部で<a href="#functionis"><code>this</code></a>がまさにこのオブジェクトを参照しているという事になります。</p>
 
@@ -1447,7 +1522,7 @@ setInterval(foo, 1000);
 
 <p>上記のコードでは、<code>foo</code>が1回呼び出されて、1秒ブロックされます。</p>
 
-<p><code>foo</code>がコードをブロックしている間、<code>setInterval</code>は呼び出される予定を確保しています。<code>foo</code>が完了した瞬間に、実行を待っている間に<strong>10回</strong>以上呼び出されている事になります。</p>
+<p><code>foo</code>がコードをブロックしている間、<code>setInterval</code>は呼び出される予定を確保しています。<code>foo</code>が完了した瞬間に、実行を待っている呼び出しが<strong>10回</strong>以上存在しているでしょう。</p>
 
 </div><div><h3>ブロッキング可能なコードの取り扱い</h3>
 
@@ -1480,7 +1555,7 @@ for(var i = 1; i &lt; 1000; i++) {
 }
 </code></pre>
 
-<p>ここまでもまだ、任意の数字を与えられた為に影響を受けないタイムアウトがあるかもしれません。しかし、全てのタイムアウトのIDを追跡していく事は推奨されないので、それらは個別にクリアされます。</p>
+<p>ここまでもまだ、任意の数字を与えられた為に影響を受けないタイムアウトがあるかもしれません。そのため、代わりに全てのタイムアウトのIDを追跡する事が推奨されます。それで個別にクリアされます。</p>
 
 </div><div><h3>隠された<code>eval</code>の使用</h3>
 
@@ -1508,7 +1583,7 @@ bar();
 
 <p>この場合、<code>eval</code>は<a href="#core.eval">直接</a>呼ばれないので、文字列が渡された<code>setTimeout</code>は<em>global scope</em>で実行されます。よって、<code>bar</code>のスコープから<code>foo</code>のローカル変数は使われないのです。</p>
 
-<p>さらに、文字列を関数に渡さ<strong>ない</strong>ように推奨される理由として、それぞれのタイムアウト関数から呼び出されるという事があります。</p>
+<p>いずれかのタイムアウト関数によって呼び出される関数に引数を渡すために文字列を使わ<strong>ない</strong>という事は、さらに推奨されています。</p>
 
 <pre><code>function foo(a, b, c) {}
 
@@ -1531,7 +1606,7 @@ setTimeout(function() {
 
 <p><code>setTimeout</code>や<code>setInterval</code>のパラメーターに文字列を使用する事は<strong>絶対</strong>するべきではありません。引数が関数に呼び出される必要がある場合<strong>本当</strong>に悪いコードの明確なサインになります。実際の呼び出しには<em>匿名関数</em>を渡すべきです。</p>
 
-<p>その上で、<code>setInterval</code>の使用はそのスケジューラーがJavaScriptの実行をブロックするので避けるべきでしょう。</p></div></article></section><!-- Footer--><footer><p>Copyright &copy; 2011. Built with 
+<p>さらに、<code>setInterval</code>の使用はスケジューラーがJavaScriptの実行によってブロックされないので、避けるべきでしょう。</p></div></article></section><!-- Footer--><footer><p>Copyright &copy; 2011. Built with 
 <a href="http://nodejs.org/">Node.js </a>using a
 <a href="https://github.com/visionmedia/jade/">jade </a>template. 
 Hosted by 

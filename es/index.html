@@ -34,10 +34,10 @@ con un sitio espejo en <a href="http://javascriptgarden.info/">JavaScriptGarden.
 <p>El Jardín de JavaScript es publicado bajo la <a href="https://github.com/BonsaiDen/JavaScript-Garden/blob/next/LICENSE">licencia MIT</a> y es hospedado en
 <a href="https://github.com/BonsaiDen/JavaScript-Garden">GitHub</a>. Si encuentra algún error o errata por favor publique <a href="https://github.com/BonsaiDen/JavaScript-Garden/issues">una incidencia</a> o 
 envie un pull request a nuestro repositorio. También nos puede encontrar en la 
-<a href="http://chat.stackoverflow.com/rooms/17/javascript">sala de chat de JavaScript</a> en Stack Overflow.</p></div></header><!-- Articles--></section><section id="object"><!-- Introduction--><header id="object.intro"><h1>Objetos</h1></header><!-- Articles--><article id="object.general"><h2>Uso de objetos y propiedades</h2><div><p>Todo en JavaScript actúa como un objeto, con las dos únicas excepciones de 
+<a href="http://chat.stackoverflow.com/rooms/17/javascript">sala de chat de JavaScript</a> en Stack Overflow.</p></div></header><!-- Articles--></section><section id="object"><!-- Introduction--><header id="object.intro"><h1>Objetos</h1></header><!-- Articles--><article id="object.general"><h2>Uso de objetos y propiedades</h2><div><p>Todo en JavaScript actúa como un objeto, con las dos únicas excepciones de
 <a href="#core.undefined"><code>null</code></a> y <a href="#core.undefined"><code>undefined</code></a>.</p>
 
-<pre><code>false.toString() // &#39;false&#39;
+<pre><code>false.toString(); // &#39;false&#39;
 [1, 2, 3].toString(); // &#39;1,2,3&#39;
 
 function Foo(){}
@@ -45,14 +45,14 @@ Foo.bar = 1;
 Foo.bar; // 1
 </code></pre>
 
-<p>Un error muy común es el uso de literales númericos como objetos. 
+<p>Un error muy común es el uso de literales númericos como objetos.
 Esto se debe a un error en el parser de JavaScript que intenta analizar la
 <em>notación de puntos</em> como un literal de punto flotante.</p>
 
 <pre><code>2.toString(); // lanza SyntaxError
 </code></pre>
 
-<p>Existe un par de soluciones que pueden utilizarse para hacer que los 
+<p>Existe un par de soluciones que pueden utilizarse para hacer que los
 literales númericos actúen como objetos.</p>
 
 <pre><code>2..toString(); // el segundo punto es reconocido correctamente
@@ -62,23 +62,23 @@ literales númericos actúen como objetos.</p>
 
 </div><div><h3>Objetos como un tipo de datos</h3>
 
-<p>Los objetos en JavaScript también pueden ser utilizados como una Tabla Hash o conocido como <a href="http://en.wikipedia.org/wiki/Hashmap"><em>Hashmap</em></a> en inglés, consisten 
+<p>Los objetos en JavaScript también pueden ser utilizados como una Tabla Hash o conocido como <a href="http://en.wikipedia.org/wiki/Hashmap"><em>Hashmap</em></a> en inglés, consisten
 principalmente en nombres de propiedades asignadoles valores a estos.</p>
 
-<p>El uso de un objeto literal - con notación <code>{}</code> - puede crear un 
+<p>El uso de un objeto literal - con notación <code>{}</code> - puede crear un
 objeto plano. Este nuevo objeto <a href="#object.prototype">heredado</a> desde <code>Object.prototype</code>
 no posee <a href="#object.hasownproperty">propiedades propias</a> definidas.</p>
 
 <pre><code>var foo = {}; // un nuevo objeto vacío
 
 // un nuevo objeto con la propiedad llamada &#39;test&#39; con el valor 12
-var bar = {test: 12}; 
+var bar = {test: 12};
 </code></pre>
 
 </div><div><h3>Acceso a las propiedades</h3>
 
 <p>Se puede acceder a las propiedades de un objeto de dos maneras, ya sea a través de la
-notación de punto o desde la notación de corchetes. </p>
+notación de punto o desde la notación de corchetes.</p>
 
 <pre><code>var foo = {name: &#39;Kitten&#39;}
 foo.name; // kitten
@@ -98,8 +98,8 @@ el uso de propiedades que de otro modo daría lugar a error de sintaxis.</p>
 </div><div><h3>Eliminando propiedades</h3>
 
 <p>La única manera de eliminar una propiedad desde un objeto es usando el
-operador <code>delete</code>; Se establece la propiedad a <code>undefined</code> o <code>null</code> sólo al
-<em>valor</em> asociado de la propiedad, pero no ha un <em>key</em> (valor clave).</p>
+operador <code>delete</code>; establecer la propiedad a <code>undefined</code> o <code>null</code> solamente
+elimina el <em>valor</em> asociado a la propiedad, pero no la <em>key</em> (valor clave).</p>
 
 <pre><code>var obj = {
     bar: 1,

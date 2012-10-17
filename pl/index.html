@@ -19,12 +19,12 @@ przewodniku. Aby nauczyć się podstaw jezyka JavaScript, odwiedź znakomity
 <li><a href="http://blog.ciemborowicz.pl">Maciej Ciemborowicz</a></li>
 </ul></div></article><article id="intro.hosting"><h2>Hosting</h2><div><p>JavaScript Garden znajduje się na serwerach GitHub, ale dzięki wsparciu 
 <a href="http://cramerdev.com/">Cramer Development</a> posiadamy również mirror na serwerze <a href="http://javascriptgarden.info/">JavaScriptGarden.info</a>.</p></div></article><article id="intro.license"><h2>Licencja</h2><div><p>JavaScript Garden jest publikowany w ramach <a href="https://github.com/BonsaiDen/JavaScript-Garden/blob/next/LICENSE">licencji MIT</a> i kod źródłowy znajduje 
-się na serwerze <a href="https://github.com/BonsaiDen/JavaScript-Garden">GitHub</a>. Jeśli znajdziesz jakieś błędy lub literówek zgłoś proszę 
+się na serwerze <a href="https://github.com/BonsaiDen/JavaScript-Garden">GitHub</a>. Jeśli znajdziesz jakieś błędy lub literówki, zgłoś proszę 
 <a href="https://github.com/BonsaiDen/JavaScript-Garden/issues">problem</a> lub rozwiąż go i zgloś pull request ze swojego repozytorium. 
 Możesz nas także znaleźć w pokoju <a href="http://chat.stackoverflow.com/rooms/17/javascript">JavaScript</a> na chacie Stack Overflow. </p></div></article></section><section id="object"><!-- Introduction--><header id="object.intro"><h1>Obiekty</h1></header><!-- Articles--><article id="object.general"><h2>Wykorzystanie obiektów i ich właściwości</h2><div><p>Wszystko w JavaScripcie zachowuje sie jak obiekt, z dwoma wyjątkami
 <a href="#core.undefined"><code>null</code></a> oraz <a href="#core.undefined"><code>undefined</code></a>. </p>
 
-<pre><code>false.toString() // &#39;false&#39;
+<pre><code>false.toString(); // &#39;false&#39;
 [1, 2, 3].toString(); // &#39;1,2,3&#39;
 
 function Foo(){}
@@ -350,7 +350,7 @@ być przekazywane jak każda inna wartość. Jednym z typowych zastosowań tej c
 jest przekazywanie <em>anonimowej funkcji</em> jako callback do innej, prawdopodobnie 
 asynchronicznej funkcji.</p>
 
-</div><div><h3>Deklaracja funckcji</h3>
+</div><div><h3>Deklaracja funkcji</h3>
 
 <pre><code>function foo() {}
 </code></pre>
@@ -401,10 +401,6 @@ w języku JavaScript. Nazwa funkcji jest <em>zawsze</em> dostępna w lokalnym
 zakresie tej funkcji.</p></div></article><article id="function.this"><h2>Jak działa <code>this</code></h2><div><p>JavaScript posiada inną koncepcję odnośnie tego na co wskazuje słowo kluczowe 
 <code>this</code>, niż większość innych języków programowania. Istnieje dokładnie 
 <strong>pięć</strong> różnych sytuacji, w których wartość <code>this</code> jest przypisana w języku JavaScript.</p>
-
-<p>JavaScript has a different concept of what the special name <code>this</code> refers to 
-than most other programming languages do. There are exactly <strong>five</strong> different 
-ways in which the value of <code>this</code> can be bound in the language.</p>
 
 </div><div><h3>Zasięg globalny</h3>
 
@@ -525,7 +521,7 @@ new Bar().method();
 wskazywało właśnie tę instancję.</p></div></article><article id="function.closures"><h2>Domknięcia i referencje</h2><div><p>Jedną z najpotężniejszych funkcjonalności języka JavaScript są <em>domknięcia</em>. 
 Oznacza to że zasięg <strong>zawsze</strong> posiada dostęp do zewnętrznego zasięgu, w którym 
 został zdefiniowany. Ponieważ zasięg w JavaScript można definiować tylko poprzez 
-<a href="#function.scopes">funckję</a>, wszystkie funkcje domyślnie zachowują się jak domknięcia.</p>
+<a href="#function.scopes">funkcję</a>, wszystkie funkcje domyślnie zachowują się jak domknięcia.</p>
 
 </div><div><h3>Emulowanie prywatnych zmiennych</h3>
 
@@ -771,7 +767,7 @@ Foo.prototype.test = function() {
 var test = new Foo();
 </code></pre>
 
-<p>Powyżej wywołanya została funkcja <code>Foo</code> jako konstruktor oraz ustawia 
+<p>Powyżej wywołana została funkcja <code>Foo</code> jako konstruktor oraz ustawia 
 nowo utworzonemu obiektowi właściwość <code>prototype</code> na <code>Foo.prototype</code>.</p>
 
 <p>W tym przypadku jawna deklaracja <code>return</code> w funkcji zwraca wartość 
@@ -804,7 +800,7 @@ Foo(); // undefined
 
 <p>Mimo że powyższy kod może zadziałać w pewnych przypadkach, w związku 
 z działaniem <a href="#function.this"><code>this</code></a> w języku JavaScript, to jako 
-wartość <code>this</code>zostanie wykorzystany <strong>obiekt global</strong>.</p>
+wartość <code>this</code> zostanie wykorzystany <strong>obiekt global</strong>.</p>
 
 </div><div><h3>Fabryki</h3>
 
@@ -864,17 +860,17 @@ nowy obiekt wewnątrz tej fabryki.</p>
 
 <p>Mimo że powyższy kod jest odporny na brak słowa kluczowego <code>new</code> i ułatwia 
 korzystanie ze <a href="#function.closures">zmiennych prywatnych</a>, to posiada 
-pewne wady.
-While the above is robust against a missing <code>new</code> keyword and certainly makes 
-the use of <a href="#function.closures">private variables</a> easier, it comes with some 
-downsides.
- 1. Zużywa więcej pamięci, ponieważ tworzony obiekt <strong>nie</strong> współdzieli metod 
-    poprzez prototyp.
- 2. Aby móc dziedziczyć fabryka musi skopiować wszystkie metody z dziedziczonego 
-    obiektu lub przypisać ten obiekt, z którego się dziedziczy, jako prototyp 
-    do nowo utworzonego obiektu.
- 3. Porzucenie łańcucha prototypów tylko ze względu na opuszczone słowo kluczowe
-    <code>new</code> jest sprzeczne z duchem języka.</p>
+pewne wady.</p>
+
+<ol>
+<li>Zużywa więcej pamięci, ponieważ tworzony obiekt <strong>nie</strong> współdzieli metod 
+poprzez prototyp.</li>
+<li>Aby móc dziedziczyć fabryka musi skopiować wszystkie metody z dziedziczonego 
+obiektu lub przypisać ten obiekt, z którego się dziedziczy, jako prototyp 
+do nowo utworzonego obiektu.</li>
+<li>Porzucenie łańcucha prototypów tylko ze względu na opuszczone słowo kluczowe
+<code>new</code> jest sprzeczne z duchem języka.</li>
+</ol>
 
 </div><div><h3>Wnioski</h3>
 
@@ -1281,7 +1277,7 @@ var foo = {};
 foo === foo;                 // true
 </code></pre>
 
-<p>Oba operatory porównują <strong>toższmość</strong> a <strong>nie</strong> równość, czyli będą porównywać czy 
+<p>Oba operatory porównują <strong>tożsamość</strong> a <strong>nie</strong> równość, czyli będą porównywać czy 
 jeden i drugi operand jest tą samą <strong>instancją</strong> obiektu (podobnie jak operator 
 <code>is</code> w Pythonie i porównanie wskaźników w C).  </p>
 
