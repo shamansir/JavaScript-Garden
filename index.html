@@ -52,8 +52,8 @@ notation</em> on a number as a floating point literal.</p>
 <pre><code>2.toString(); // raises SyntaxError
 </code></pre>
 
-<p>There are a couple of workarounds which can be used in order make number 
-literals act as objects too.</p>
+<p>There are a couple of workarounds that can be used to make number literals act
+as objects too.</p>
 
 <pre><code>2..toString(); // the second point is correctly recognized
 2 .toString(); // note the space left to the dot
@@ -62,16 +62,16 @@ literals act as objects too.</p>
 
 </div><div><h3>Objects as a Data Type</h3>
 
-<p>Objects in JavaScript can also be used as a <a href="http://en.wikipedia.org/wiki/Hashmap"><em>Hashmap</em></a>; they mainly consist 
+<p>Objects in JavaScript can also be used as <a href="http://en.wikipedia.org/wiki/Hashmap"><em>Hashmaps</em></a>; they mainly consist 
 of named properties mapping to values.</p>
 
 <p>Using an object literal - <code>{}</code> notation - it is possible to create a 
 plain object. This new object <a href="#object.prototype">inherits</a> from <code>Object.prototype</code> and 
-has no <a href="#object.hasownproperty">own properties</a> defined on it.</p>
+does not have <a href="#object.hasownproperty">own properties</a> defined.</p>
 
 <pre><code>var foo = {}; // a new empty object
 
-// a new object with a property called &#39;test&#39; with value 12
+// a new object with a &#39;test&#39; property with value 12
 var bar = {test: 12}; 
 </code></pre>
 
@@ -91,13 +91,13 @@ foo.1234; // SyntaxError
 foo[&#39;1234&#39;]; // works
 </code></pre>
 
-<p>Both notations are identical in their workings, with the only difference being that
-the square bracket notation allows for dynamic setting of properties, as well as
+<p>The notations work almost identically, with the only difference being that the
+square bracket notation allows for dynamic setting of properties and
 the use of property names that would otherwise lead to a syntax error.</p>
 
 </div><div><h3>Deleting Properties</h3>
 
-<p>The only way to actually remove a property from an object is to use the <code>delete</code>
+<p>The only way to remove a property from an object is to use the <code>delete</code>
 operator; setting the property to <code>undefined</code> or <code>null</code> only removes the
 <em>value</em> associated with the property, but not the <em>key</em>.</p>
 
@@ -138,16 +138,16 @@ older JavaScript engines.</p></div></article><article id="object.prototype"><h2>
 <em>prototypal</em> one. </p>
 
 <p>While this is often considered to be one of JavaScript&#39;s weaknesses, the 
-prototypal inheritance model is in fact more powerful than the classic model. 
-It is, for example, fairly trivial to build a classic model on top of it, while the
-other way around is a far more difficult task.</p>
+prototypal inheritance model is in fact more powerful than the classic model.
+It is, for example, fairly trivial to build a classic model on top of a
+prototypal model, while the other way around is a far more difficult task.</p>
 
-<p>Due to the fact that JavaScript is basically the only widely used language that
-features prototypal inheritance, it takes some time to adjust to the 
-differences between the two models. </p>
+<p>JavaScript is the only widely used language that features prototypal
+inheritance, so it can take time to adjust to the differences between the two
+models. </p>
 
-<p>The first major difference is that inheritance in JavaScript is done by using so
-called <em>prototype chains</em>.</p>
+<p>The first major difference is that inheritance in JavaScript uses <em>prototype
+chains</em>.</p>
 
 <aside>
   <p><strong>Note:</strong> Simply using <code>Bar.prototype = Foo.prototype</code> will result in both objects
@@ -184,7 +184,7 @@ test [instance of Bar]
                 { toString: ... /* etc. */ }
 </code></pre>
 
-<p>In the above, the object <code>test</code> will inherit from both <code>Bar.prototype</code> and
+<p>In the code above, the object <code>test</code> will inherit from both <code>Bar.prototype</code> and
 <code>Foo.prototype</code>; hence, it will have access to the function <code>method</code> that was 
 defined on <code>Foo</code>. It will also have access to the property <code>value</code> of the
 <strong>one</strong> <code>Foo</code> instance that is its prototype. It is important to note that <code>new
@@ -203,7 +203,7 @@ its prototype; thus, all <code>Bar</code> instances will share the <strong>same<
 <p>When accessing the properties of an object, JavaScript will traverse the
 prototype chain <strong>upwards</strong> until it finds a property with the requested name.</p>
 
-<p>When it reaches the top of the chain - namely <code>Object.prototype</code> - and still
+<p>If it reaches the top of the chain - namely <code>Object.prototype</code> - and still
 hasn&#39;t found the specified property, it will return the value
 <a href="#core.undefined">undefined</a> instead.</p>
 
@@ -222,12 +222,13 @@ creation of prototype chains.</p>
 
 </div><div><h3>Performance</h3>
 
-<p>The lookup time for properties that are high up on the prototype chain can have a
-negative impact on performance critical sections of code. Additionally, trying to 
-access non-existent properties will always traverse the full prototype chain. </p>
+<p>The lookup time for properties that are high up on the prototype chain can have
+a negative impact on performance, and this may be significant in code where
+performance is critical. Additionally, trying to access non-existent properties
+will always traverse the full prototype chain. </p>
 
 <p>Also, when <a href="#object.forinloop">iterating</a> over the properties of an object 
-<strong>every</strong> property that is on the prototype chain will get enumerated.</p>
+<strong>every</strong> property that is on the prototype chain will be enumerated.</p>
 
 </div><div><h3>Extension of Native Prototypes</h3>
 
@@ -235,7 +236,7 @@ access non-existent properties will always traverse the full prototype chain. </
 other built in prototypes.</p>
 
 <p>This technique is called <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey patching</a> and breaks <em>encapsulation</em>. While 
-used by widely spread frameworks such as <a href="http://prototypejs.org/">Prototype</a>, there is still no good 
+used by popular frameworks such as <a href="http://prototypejs.org/">Prototype</a>, there is still no good 
 reason for cluttering built-in types with additional <em>non-standard</em> functionality.</p>
 
 <p>The <strong>only</strong> good reason for extending a built-in prototype is to backport 
@@ -244,12 +245,13 @@ the features of newer JavaScript engines; for example,
 
 </div><div><h3>In Conclusion</h3>
 
-<p>It is a <strong>must</strong> to understand the prototypal inheritance model completely 
-before writing complex code which makes use of it. Also, watch the length of 
-the prototype chains and break them up if necessary to avoid possible 
-performance issues. Further, the native prototypes should <strong>never</strong> be extended 
-unless it is for the sake of compatibility with newer JavaScript features.</p></div></article><article id="object.hasownproperty"><h2><code>hasOwnProperty</code></h2><div><p>In order to check whether a object has a property defined on <em>itself</em> and <strong>not</strong> 
-somewhere on its <a href="#object.prototype">prototype chain</a>, it is necessary to use the 
+<p>It is <strong>essential</strong> to understand the prototypal inheritance model before
+writing complex code that makes use of it. Also, be aware of the length of the
+prototype chains in your code and break them up if necessary to avoid possible
+performance problems. Further, the native prototypes should <strong>never</strong> be
+extended unless it is for the sake of compatibility with newer JavaScript
+features.</p></div></article><article id="object.hasownproperty"><h2><code>hasOwnProperty</code></h2><div><p>To check whether an object has a property defined on <em>itself</em> and not somewhere
+on its <a href="#object.prototype">prototype chain</a>, it is necessary to use the
 <code>hasOwnProperty</code> method which all objects inherit from <code>Object.prototype</code>.</p>
 
 <aside>
@@ -274,14 +276,14 @@ foo.hasOwnProperty(&#39;goo&#39;); // true
 
 <p>Only <code>hasOwnProperty</code> will give the correct and expected result; this is 
 essential when iterating over the properties of any object. There is <strong>no</strong> other 
-way to exclude properties that are not defined on the object <em>itself</em>, but 
+way to exclude properties that are not defined on the object itself, but 
 somewhere on its prototype chain.  </p>
 
 </div><div><h3><code>hasOwnProperty</code> as a Property</h3>
 
-<p>JavaScript does <strong>not</strong> protect the property name <code>hasOwnProperty</code>; thus, if the
+<p>JavaScript does not protect the property name <code>hasOwnProperty</code>; thus, if the
 possibility exists that an object might have a property with this name, it is
-necessary to use an <em>external</em> <code>hasOwnProperty</code> in order to get correct results.</p>
+necessary to use an <em>external</em> <code>hasOwnProperty</code> to get correct results.</p>
 
 <pre><code>var foo = {
     hasOwnProperty: function() {
@@ -295,16 +297,16 @@ foo.hasOwnProperty(&#39;bar&#39;); // always returns false
 // Use another Object&#39;s hasOwnProperty and call it with &#39;this&#39; set to foo
 ({}).hasOwnProperty.call(foo, &#39;bar&#39;); // true
 
-// It&#39;s also possible use the hasOwnProperty property from the Object property for this purpose
+// It&#39;s also possible to use the hasOwnProperty property from the Object property for this purpose
 Object.prototype.hasOwnProperty.call(obj, &#39;bar&#39;); // true
 </code></pre>
 
 </div><div><h3>In Conclusion</h3>
 
-<p>When checking for the existence of a property on a object, <code>hasOwnProperty</code> is 
-the <strong>only</strong> method of doing so. It is also recommended to make <code>hasOwnProperty</code>
-part of <strong>every</strong> <a href="#object.forinloop"><code>for in</code> loop</a>; this will avoid errors from 
-extended native <a href="#object.prototype">prototypes</a>.</p></div></article><article id="object.forinloop"><h2>The <code>for in</code> Loop</h2><div><p>Just like the <code>in</code> operator, the <code>for in</code> loop also traverses the prototype
+<p>Using <code>hasOwnProperty</code> is the <strong>only</strong> reliable method to check for the
+existence of a property on an object. It is recommended that <code>hasOwnProperty</code>
+is used in <strong>every</strong> <a href="#object.forinloop"><code>for in</code> loop</a> to avoid errors from
+extended native <a href="#object.prototype">prototypes</a>.</p></div></article><article id="object.forinloop"><h2>The <code>for in</code> Loop</h2><div><p>Just like the <code>in</code> operator, the <code>for in</code> loop traverses the prototype
 chain when iterating over the properties of an object.</p>
 
 <aside>
@@ -324,11 +326,11 @@ for(var i in foo) {
 
 <p>Since it is not possible to change the behavior of the <code>for in</code> loop itself, it
 is necessary to filter out the unwanted properties inside the loop body; 
-this is done by using the <a href="#object.hasownproperty"><code>hasOwnProperty</code></a> method of 
+this is done using the <a href="#object.hasownproperty"><code>hasOwnProperty</code></a> method of 
 <code>Object.prototype</code>.</p>
 
 <aside>
-  <p><strong>Note:</strong> Since the <code>for in</code> always traverses the complete prototype chain, it
+  <p><strong>Note:</strong> Since <code>for in</code> always traverses the complete prototype chain, it
   will get slower with each additional layer of inheritance added to an object.</p>
 </aside>
 
@@ -347,15 +349,15 @@ will <strong>only</strong> print out <code>moo</code>. When <code>hasOwnProperty
 prone to errors in cases where the native prototypes - e.g. <code>Object.prototype</code> - 
 have been extended.</p>
 
-<p>One widely used framework which does this is <a href="http://www.prototypejs.org/">Prototype</a>. When this 
-framework is included, <code>for in</code> loops that do not use <code>hasOwnProperty</code> are 
-guaranteed to break.</p>
+<p>One widely used framework that extends <code>Object.prototype</code> is <a href="http://www.prototypejs.org/">Prototype</a>.
+When this framework is included, <code>for in</code> loops that do not use
+<code>hasOwnProperty</code> are guaranteed to break.</p>
 
 </div><div><h3>In Conclusion</h3>
 
-<p>It is recommended to <strong>always</strong> use <code>hasOwnProperty</code>. Never should any 
-assumptions be made about the environment the code is running in, or whether the 
-native prototypes have been extended or not.</p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>Functions</h1></header><!-- Articles--><article id="function.general"><h2>Function Declarations and Expressions</h2><div><p>Functions in JavaScript are first class objects. That means they can be 
+<p>It is recommended to <strong>always</strong> use <code>hasOwnProperty</code>. Assumptions should never
+be made about the environment the code is running in, or whether the native
+prototypes have been extended or not.</p></div></article></section><section id="function"><!-- Introduction--><header id="function.intro"><h1>Functions</h1></header><!-- Articles--><article id="function.general"><h2>Function Declarations and Expressions</h2><div><p>Functions in JavaScript are first class objects. That means they can be 
 passed around like any other value. One common use of this feature is to pass
 an <em>anonymous function</em> as a callback to another, possibly an asynchronous function.</p>
 
@@ -364,9 +366,9 @@ an <em>anonymous function</em> as a callback to another, possibly an asynchronou
 <pre><code>function foo() {}
 </code></pre>
 
-<p>The above function gets <a href="#function.scopes">hoisted</a> before the execution of the 
-program starts; thus, it is available <em>everywhere</em> in the scope it was <em>defined</em> 
-in, even if called before the actual definition in the source.</p>
+<p>The above function gets <a href="#function.scopes">hoisted</a> before the execution of the
+program starts; thus, it is available <em>everywhere</em> in the scope it was
+<em>defined</em>, even if called before the actual definition in the source.</p>
 
 <pre><code>foo(); // Works because foo was created before this code runs
 function foo() {}
@@ -405,7 +407,7 @@ bar(); // ReferenceError
 assigned to <code>foo</code>; however, inside of <code>bar</code>, it is available. This is due to 
 how <a href="#function.scopes">name resolution</a> in JavaScript works, the name of the 
 function is <em>always</em> made available in the local scope of the function itself.</p></div></article><article id="function.this"><h2>How <code>this</code> Works</h2><div><p>JavaScript has a different concept of what the special name <code>this</code> refers to 
-than most other programming languages do. There are exactly <strong>five</strong> different 
+than most other programming languages. There are exactly <strong>five</strong> different 
 ways in which the value of <code>this</code> can be bound in the language.</p>
 
 </div><div><h3>The Global Scope</h3>
@@ -466,7 +468,7 @@ inside of <code>foo</code> will be set to <code>bar</code>.</p>
 
 </div><div><h3>Common Pitfalls</h3>
 
-<p>While most of these cases make sense, the first one is to be considered another
+<p>While most of these cases make sense, the first can be considered another
 mis-design of the language because it <strong>never</strong> has any practical use.</p>
 
 <pre><code>Foo.method = function() {
@@ -481,7 +483,7 @@ mis-design of the language because it <strong>never</strong> has any practical u
 fact, it <strong>does not</strong>.</p>
 
 <p>In order to gain access to <code>Foo</code> from within <code>test</code>, it is necessary to create a 
-local variable inside of <code>method</code> which refers to <code>Foo</code>.</p>
+local variable inside of <code>method</code> that refers to <code>Foo</code>.</p>
 
 <pre><code>Foo.method = function() {
     var that = this;
@@ -520,7 +522,7 @@ Bar.prototype = Foo.prototype;
 new Bar().method();
 </code></pre>
 
-<p>When <code>method</code> gets called on a instance of <code>Bar</code>, <code>this</code> will now refer to that
+<p>When <code>method</code> gets called on an instance of <code>Bar</code>, <code>this</code> will now refer to that
 very instance. </p></div></article><article id="function.closures"><h2>Closures and References</h2><div><p>One of JavaScript&#39;s most powerful features is the availability of <em>closures</em>.
 With closures, scopes <strong>always</strong> keep access to the outer scope, in which they
 were defined. Since the only scoping that JavaScript has is 
@@ -549,7 +551,7 @@ foo.get(); // 5
 <p>Here, <code>Counter</code> returns <strong>two</strong> closures: the function <code>increment</code> as well as 
 the function <code>get</code>. Both of these functions keep a <strong>reference</strong> to the scope of 
 <code>Counter</code> and, therefore, always keep access to the <code>count</code> variable that was 
-defined in that very scope.</p>
+defined in that scope.</p>
 
 </div><div><h3>Why Private Variables Work</h3>
 
@@ -570,7 +572,7 @@ override - the <em>global</em> variable <code>count</code>.</p>
 </div><div><h3>Closures Inside Loops</h3>
 
 <p>One often made mistake is to use closures inside of loops, as if they were
-copying the value of the loops index variable.</p>
+copying the value of the loop&#39;s index variable.</p>
 
 <pre><code>for(var i = 0; i &lt; 10; i++) {
     setTimeout(function() {
@@ -704,9 +706,9 @@ foo(1, 2, 3);
 
 </div><div><h3>Performance Myths and Truths</h3>
 
-<p>The <code>arguments</code> object is always created with the only two exceptions being the 
-cases where it is declared as a name inside of a function or one of its formal 
-parameters. It does not matter whether it is used or not.</p>
+<p>The only time  the <code>arguments</code> object is not created is where it is declared as
+a name inside of a function or one of its formal parameters. It does not matter
+whether it is used or not.</p>
 
 <p>Both <em>getters</em> and <em>setters</em> are <strong>always</strong> created; thus, using it has nearly 
 no performance impact at all, especially not in real world code where there is 
@@ -735,8 +737,7 @@ needs to know about both itself and its caller. This not only defeats possible
 performance gains that would arise from inlining, but it also breaks encapsulation
 because the function may now be dependent on a specific calling context.</p>
 
-<p>It is <strong>highly recommended</strong> to <strong>never</strong> make use of <code>arguments.callee</code> or any of 
-its properties.</p>
+<p>Making use of <code>arguments.callee</code> or any of its properties is <strong>highly discouraged</strong>.</p>
 
 <aside class="es5"><p><strong>ES5 Note:</strong> In strict mode, <code>arguments.callee</code> will throw a <code>TypeError</code> since 
   its use has been deprecated.</p>
@@ -766,7 +767,7 @@ var test = new Foo();
 created object to <code>Foo.prototype</code>.</p>
 
 <p>In case of an explicit <code>return</code> statement, the function returns the value 
-specified that statement, <strong>but only</strong> if the return value is an <code>Object</code>.                                     </p>
+specified by that statement, but <strong>only</strong> if the return value is an <code>Object</code>.</p>
 
 <pre><code>function Bar() {
     return 2;
@@ -816,23 +817,23 @@ new Bar();
 Bar();
 </code></pre>
 
-<p>Both calls to <code>Bar</code> return the exact same thing, a newly create object which
-has a property called <code>method</code> on it, which is a 
+<p>Both calls to <code>Bar</code> return the same thing, a newly create object that
+has a property called <code>method</code>, which is a 
 <a href="#function.closures">Closure</a>.</p>
 
-<p>It is also to note that the call <code>new Bar()</code> does <strong>not</strong> affect the prototype 
-of the returned object. While the prototype will be set on the newly created 
-object, <code>Bar</code> never returns that new object.</p>
+<p>It should also be noted that the call <code>new Bar()</code> does <strong>not</strong> affect the
+prototype of the returned object. While the prototype will be set on the newly
+created object, <code>Bar</code> never returns that new object.</p>
 
 <p>In the above example, there is no functional difference between using and
 not using the <code>new</code> keyword.</p>
 
 </div><div><h3>Creating New Objects via Factories</h3>
 
-<p>An often made recommendation is to <strong>not</strong> use <code>new</code> because forgetting its use
-may lead to bugs.</p>
+<p>It is often recommended to <strong>not</strong> use <code>new</code> because forgetting its use may
+lead to bugs.</p>
 
-<p>In order to create new object, one should rather use a factory and construct a 
+<p>In order to create a new object, one should rather use a factory and construct a 
 new object inside of that factory.</p>
 
 <pre><code>function Foo() {
@@ -858,19 +859,19 @@ downsides.</p>
 <ol>
 <li>It uses more memory since the created objects do <strong>not</strong> share the methods
 on a prototype.</li>
-<li>In order to inherit the factory needs to copy all the methods from another
+<li>In order to inherit, the factory needs to copy all the methods from another
 object or put that object on the prototype of the new object.</li>
 <li>Dropping the prototype chain just because of a left out <code>new</code> keyword
-somehow goes against the spirit of the language.</li>
+is contrary to the spirit of the language.</li>
 </ol>
 
 </div><div><h3>In Conclusion</h3>
 
-<p>While omitting the <code>new</code> keyword might lead to bugs, it is certainly <strong>not</strong> a 
-reason to drop the use of prototypes altogether. In the end it comes down to 
-which solution is better suited for the needs of the application, it is 
-especially important to choose a specific style of object creation <strong>and stick</strong> 
-with it.</p></div></article><article id="function.scopes"><h2>Scopes and Namespaces</h2><div><p>Although JavaScript deals fine with the syntax of two matching curly
+<p>While omitting the <code>new</code> keyword might lead to bugs, it is certainly <strong>not</strong> a
+reason to drop the use of prototypes altogether. In the end it comes down to
+which solution is better suited for the needs of the application. It is
+especially important to choose a specific style of object creation and use it
+<strong>consistently</strong>.</p></div></article><article id="function.scopes"><h2>Scopes and Namespaces</h2><div><p>Although JavaScript deals fine with the syntax of two matching curly
 braces for blocks, it does <strong>not</strong> support block scope; hence, all that is left 
 in the language is <em>function scope</em>.</p>
 
@@ -949,7 +950,7 @@ unless the <em>desired effect</em> is to affect the outer scope.</p>
 </div><div><h3>Local Variables</h3>
 
 <p>The only source for local variables in JavaScript are
-<a href="#function.general">function</a> parameters and variables that were declared via the 
+<a href="#function.general">function</a> parameters and variables declared via the 
 <code>var</code> statement.</p>
 
 <pre><code>// global scope
@@ -993,8 +994,8 @@ function test(data) {
 }
 </code></pre>
 
-<p>The above code gets transformed before any execution is started. JavaScript moves
-the <code>var</code> statements, as well as the <code>function</code> declarations to the top of the 
+<p>The above code gets transformed before execution starts. JavaScript moves
+the <code>var</code> statements, as well as <code>function</code> declarations, to the top of the 
 nearest surrounding scope.</p>
 
 <pre><code>// var statements got moved here
@@ -1029,7 +1030,7 @@ non-intuitive.</p>
 variable</em> <code>goo</code>, it actually modifies the <em>local variable</em> - after hoisting 
 has been applied.</p>
 
-<p>Without the knowledge about <em>hoisting</em>, the below code might seem to raise a 
+<p>Without knowledge of <em>hoisting</em>, one might suspect the code below would raise a
 <code>ReferenceError</code>.</p>
 
 <pre><code>// check whether SomeImportantThing has been initialized
@@ -1038,7 +1039,7 @@ if (!SomeImportantThing) {
 }
 </code></pre>
 
-<p>But of course, the above works due to the fact that the <code>var</code> statement is being 
+<p>But of course, this works due to the fact that the <code>var</code> statement is being 
 moved to the top of the <em>global scope</em>.</p>
 
 <pre><code>var SomeImportantThing;
@@ -1057,10 +1058,10 @@ if (!SomeImportantThing) {
 <a href="#function.this"><code>this</code></a>, defined in them, which refers to the <em>current object</em>. </p>
 
 <p>Function scopes also have the name <a href="#function.arguments"><code>arguments</code></a>, defined in
-them, which contains the arguments that were passed to a function.</p>
+them, which contains the arguments that were passed to the function.</p>
 
 <p>For example, when trying to access a variable named <code>foo</code> inside the scope of a 
-function, JavaScript will lookup the name in the following order:</p>
+function, JavaScript will look up the name in the following order:</p>
 
 <ol>
 <li>In case there is a <code>var foo</code> statement in the current scope, use that.</li>
@@ -1076,9 +1077,9 @@ function, JavaScript will lookup the name in the following order:</p>
 
 </div><div><h3>Namespaces</h3>
 
-<p>A common problem of having only one global namespace is the likeliness of running
-into problems where variable names clash. In JavaScript, this problem can
-easily be avoided with the help of <em>anonymous wrappers</em>.</p>
+<p>A common problem associated with having only one global namespace is the
+likelihood of running into problems where variable names clash. In JavaScript,
+this problem can easily be avoided with the help of <em>anonymous wrappers</em>.</p>
 
 <pre><code>(function() {
     // a self contained "namespace"
@@ -1093,14 +1094,14 @@ easily be avoided with the help of <em>anonymous wrappers</em>.</p>
 <p>Unnamed functions are considered <a href="#function.general">expressions</a>; so in order to
 being callable, they must first be evaluated.</p>
 
-<pre><code>( // evaluate the function inside the paranthesis
+<pre><code>( // evaluate the function inside the parentheses
 function() {}
 ) // and return the function object
 () // call the result of the evaluation
 </code></pre>
 
-<p>There are other ways for evaluating and directly calling the function expression; which, 
-while different in syntax, do behave the exact same way.</p>
+<p>There are other ways to evaluate and directly call the function expression
+which, while different in syntax, behave the same way.</p>
 
 <pre><code>// A few other styles for directly invoking the 
 !function(){}()
@@ -1111,7 +1112,7 @@ while different in syntax, do behave the exact same way.</p>
 
 </div><div><h3>In Conclusion</h3>
 
-<p>It is recommended to always use an <em>anonymous wrapper</em> for encapsulating code in 
+<p>It is recommended to always use an <em>anonymous wrapper</em> to encapsulate code in 
 its own namespace. This does not only protect code against name clashes, but it 
 also allows for better modularization of programs.</p>
 
@@ -1197,18 +1198,18 @@ arr[1]; // undefined
 1 in arr; // false, the index was not set
 </code></pre>
 
-<p>The behavior of being able to set the length of the array upfront only comes in 
-handy in a few cases, like repeating a string, in which it avoids the use of a 
-<code>for loop</code> code.</p>
+<p>Being able to set the length of the array in advance is only useful in a few
+cases, like repeating a string, in which it avoids the use of a <code>for loop</code>
+code.</p>
 
 <pre><code>new Array(count + 1).join(stringToRepeat);
 </code></pre>
 
 </div><div><h3>In Conclusion</h3>
 
-<p>The use of the <code>Array</code> constructor should be avoided as much as possible. 
-Literals are definitely preferred. They are shorter and have a clearer syntax; 
-therefore, they also increase the readability of the code.</p></div></article></section><section id="types"><!-- Introduction--><header id="types.intro"><h1>Types</h1></header><!-- Articles--><article id="types.equality"><h2>Equality and Comparisons</h2><div><p>JavaScript has two different ways of comparing the values of objects for equality. </p>
+<p>The use of the <code>Array</code> constructor should be avoided. Literals are definitely
+preferred. They are shorter, have a clearer syntax, and increase code
+readability.</p></div></article></section><section id="types"><!-- Introduction--><header id="types.intro"><h1>Types</h1></header><!-- Articles--><article id="types.equality"><h2>Equality and Comparisons</h2><div><p>JavaScript has two different ways of comparing the values of objects for equality. </p>
 
 </div><div><h3>The Equality Operator</h3>
 
@@ -1240,7 +1241,7 @@ to another number.</p>
 
 <p>The strict equality operator consists of <strong>three</strong> equal signs: <code>===</code>.</p>
 
-<p>It works exactly like the normal equality operator, except that strict equality 
+<p>It works like the normal equality operator, except that strict equality 
 operator does <strong>not</strong> perform type coercion between its operands.</p>
 
 <pre><code>""           ===   "0"           // false
@@ -1260,8 +1261,8 @@ the operands are of different types.</p>
 
 </div><div><h3>Comparing Objects</h3>
 
-<p>While both <code>==</code> and <code>===</code> are stated as <strong>equality</strong> operators, they behave 
-differently when at least one of their operands happens to be an <code>Object</code>.</p>
+<p>While both <code>==</code> and <code>===</code> are called <strong>equality</strong> operators, they behave 
+differently when at least one of their operands is an <code>Object</code>.</p>
 
 <pre><code>{} === {};                   // false
 new String(&#39;foo&#39;) === &#39;foo&#39;; // false
@@ -1280,17 +1281,17 @@ and pointer comparison in C.</p>
 where types need to be coerced, it should be done <a href="#types.casting">explicitly</a> 
 and not left to the language&#39;s complicated coercion rules.</p></div></article><article id="types.typeof"><h2>The <code>typeof</code> Operator</h2><div><p>The <code>typeof</code> operator (together with 
 <a href="#types.instanceof"><code>instanceof</code></a>) is probably the biggest 
-design flaw of JavaScript, as it is nearly <strong>completely broken</strong>.</p>
+design flaw of JavaScript, as it is almost <strong>completely broken</strong>.</p>
 
-<p>Although <code>instanceof</code> still has its limited uses, <code>typeof</code> really has only one
+<p>Although <code>instanceof</code> still has limited uses, <code>typeof</code> really has only one
 practical use case, which does <strong>not</strong> happen to be checking the type of an 
 object. </p>
 
 <aside>
-  <p><strong>Note:</strong> While <code>typeof</code> can also be called with a function like syntax
-  i.e. <code>typeof(obj)</code>, this is not a function call. The two parenthesis will
-  behave like normal and the return value will be used as the operand of the
-  <code>typeof</code> operator. There is <strong>no</strong> <code>typeof</code> function.</p>
+  <p><strong>Note:</strong> While <code>typeof</code> can also be called with a function like syntax, i.e.
+  <code>typeof(obj)</code>, this is not a function call. The parentheses behave as normal
+  and the return value will be used as the operand of the <code>typeof</code> operator.
+  There is <strong>no</strong> <code>typeof</code> function.</p>
 </aside>
 
 </div><div><h3>The JavaScript Type Table</h3>
@@ -1365,10 +1366,9 @@ referencing it would result in a <code>ReferenceError</code>. This is the only t
 <p>In order to check the type of an object, it is highly recommended to use 
 <code>Object.prototype.toString</code> because this is the only reliable way of doing so. 
 As shown in the above type table, some return values of <code>typeof</code> are not defined 
-in the specification; thus, they can differ across various implementations.</p>
+in the specification; thus, they can differ between implementations.</p>
 
-<p>Unless checking whether a variable is defined, <code>typeof</code> should be avoided at
-<strong>all costs</strong>.</p></div></article><article id="types.instanceof"><h2>The <code>instanceof</code> Operator</h2><div><p>The <code>instanceof</code> operator compares the constructors of its two operands. It is 
+<p>Unless checking whether a variable is defined, <code>typeof</code> should be avoided.</p></div></article><article id="types.instanceof"><h2>The <code>instanceof</code> Operator</h2><div><p>The <code>instanceof</code> operator compares the constructors of its two operands. It is 
 only useful when comparing custom made objects. Used on built-in types, it is
 nearly as useless as the <a href="#types.typeof">typeof operator</a>.</p>
 
@@ -1381,8 +1381,8 @@ Bar.prototype = new Foo();
 new Bar() instanceof Bar; // true
 new Bar() instanceof Foo; // true
 
-// This just sets Bar.prototype to the function object Foo
-// But not to an actual instance of Foo
+// This just sets Bar.prototype to the function object Foo,
+// but not to an actual instance of Foo
 Bar.prototype = Foo;
 new Bar() instanceof Foo; // false
 </code></pre>
@@ -1427,7 +1427,7 @@ isNaN(null) == false; // null converts to 0
   mode.</p>
 </aside>
 
-<p>In order to avoid the above, use of the <a href="#types.equality">strict equal operator</a> 
+<p>To avoid the issues above, use of the <a href="#types.equality">strict equal operator</a> 
 is <strong>highly</strong> recommended. Although this avoids a lot of common pitfalls, there 
 are still many further issues that arise from JavaScript&#39;s weak typing system.</p>
 
@@ -1445,8 +1445,8 @@ new Number(10) + 0 === 10; // True, due to implicit conversion
 object, but leaving out the <code>new</code> keyword will make the <code>Number</code> function behave
 like a converter.</p>
 
-<p>In addition, having literals or non-object values in there will result in even
-more type coercion.</p>
+<p>In addition, passing literals or non-object values will result in even more
+type coercion.</p>
 
 <p>The best option is to cast to one of the three possible types <strong>explicitly</strong>.</p>
 
@@ -1455,7 +1455,7 @@ more type coercion.</p>
 <pre><code>&#39;&#39; + 10 === &#39;10&#39;; // true
 </code></pre>
 
-<p>By prepending an empty string, a value can easily be casted to a string.</p>
+<p>By prepending an empty string, a value can easily be cast to a string.</p>
 
 </div><div><h3>Casting to a Number</h3>
 
@@ -1488,7 +1488,7 @@ foo; // 1
 </code></pre>
 
 <p>However, <code>eval</code> only executes in the local scope when it is being called
-<strong>directly</strong> <em>and</em> when the name of the called function is actually <code>eval</code>.</p>
+directly <em>and</em> when the name of the called function is actually <code>eval</code>.</p>
 
 <pre><code>var foo = 1;
 function test() {
@@ -1501,8 +1501,8 @@ test(); // 2
 foo; // 3
 </code></pre>
 
-<p>The use of <code>eval</code> should be avoided at <strong>all costs</strong>. 99.9% of its "uses" can be
-achieved <strong>without</strong> it.</p>
+<p>The use of <code>eval</code> should be avoided. 99.9% of its "uses" can be achieved
+<strong>without</strong> it.</p>
 
 </div><div><h3><code>eval</code> in Disguise</h3>
 
@@ -1512,16 +1512,16 @@ in the global scope since <code>eval</code> is not being called directly in that
 
 </div><div><h3>Security Issues</h3>
 
-<p><code>eval</code> also is a security problem. Because it executes <strong>any</strong> code given to it,
-it should <strong>never</strong> be used with strings of unknown or untrusted origins.</p>
+<p><code>eval</code> also is a security problem, because it executes <strong>any</strong> code given to it.
+It should <strong>never</strong> be used with strings of unknown or untrusted origins.</p>
 
 </div><div><h3>In Conclusion</h3>
 
-<p><code>eval</code> should never be used. Any code that makes use of it is to be questioned in
-its workings, performance and security. In case something requires <code>eval</code> in 
-order to work, it should <strong>not</strong> be used in the first place.
-A <em>better design</em> should be used, that does not require the use of <code>eval</code>.</p></div></article><article id="core.undefined"><h2><code>undefined</code> and <code>null</code></h2><div><p>JavaScript has two distinct values for <code>nothing</code>, the more useful of these two
-being <code>undefined</code>.</p>
+<p><code>eval</code> should never be used. Any code that makes use of it should be questioned
+in its workings, performance and security. If something requires <code>eval</code> in
+order to work, it should <strong>not</strong> be used in the first place.  A <em>better design</em>
+should be used, that does not require the use of <code>eval</code>.</p></div></article><article id="core.undefined"><h2><code>undefined</code> and <code>null</code></h2><div><p>JavaScript has two distinct values for nothing, <code>null</code> and <code>undefined</code>, with
+the latter being more useful.</p>
 
 </div><div><h3>The Value <code>undefined</code></h3>
 
@@ -1537,15 +1537,15 @@ overwritten.</p>
   <code>undefined</code>.</p>
 </aside>
 
-<p>Some examples for when the value <code>undefined</code> is returned:</p>
+<p>Here are some examples of when the value <code>undefined</code> is returned:</p>
 
 <ul>
 <li>Accessing the (unmodified) global variable <code>undefined</code>.</li>
-<li>Accessing a declared <em>but not</em> yet initialized variable</li>
+<li>Accessing a declared <em>but not</em> yet initialized variable.</li>
 <li>Implicit returns of functions due to missing <code>return</code> statements.</li>
-<li><code>return</code> statements which do not explicitly return anything.</li>
+<li><code>return</code> statements that do not explicitly return anything.</li>
 <li>Lookups of non-existent properties.</li>
-<li>Function parameters which do not had any explicit value passed.</li>
+<li>Function parameters that do not have any explicit value passed.</li>
 <li>Anything that has been set to the value of <code>undefined</code>.</li>
 <li>Any expression in the form of <code>void(expression)</code></li>
 </ul>
@@ -1559,14 +1559,14 @@ overwritten.</p>
 <p>Still, in order to compare something against the value of <code>undefined</code>, it is
 necessary to retrieve the value of <code>undefined</code> first.</p>
 
-<p>In order to protect code against a possible overwritten <code>undefined</code> variable, a 
-common technique used is to add an additional parameter to an
-<a href="#function.scopes">anonymous wrapper</a> that gets no argument passed to it.</p>
+<p>To protect code against a possible overwritten <code>undefined</code> variable, a common
+technique used is to add an additional parameter to an <a href="#function.scopes">anonymous
+wrapper</a> that gets no argument passed to it.</p>
 
 <pre><code>var undefined = 123;
 (function(something, foo, undefined) {
     // undefined in the local scope does 
-    // now again refer to the value
+    // now again refer to the value `undefined`
 
 })(&#39;Hello World&#39;, 42);
 </code></pre>
@@ -1683,7 +1683,7 @@ to insert them.</p>
 
 <aside>
   <p><strong>Note:</strong> The JavaScript parser does not "correctly" handle return statements 
-  which are followed by a new line, while this is not neccessarily the fault of 
+  that are followed by a new line. While this is not neccessarily the fault of 
   the automatic semicolon insertion, it can still be an unwanted side-effect. </p>
 </aside>
 
@@ -1708,21 +1708,20 @@ the above will yield a <code>TypeError</code> stating that <code>undefined is no
 
 </div><div><h3>In Conclusion</h3>
 
-<p>It is highly recommended to <strong>never</strong> omit semicolons; it is also advocated to 
-keep braces on the same line with their corresponding statements and to never omit 
-them for one single-line <code>if</code> / <code>else</code> statements. Both of these measures will 
-not only improve the consistency of the code, but they will also prevent the 
-JavaScript parser from changing its behavior.</p></div></article><article id="core.delete"><h2>The <code>delete</code> Operator</h2><div><p>In short, it&#39;s <em>impossible</em> to delete global variables, functions and some other
+<p>It is highly recommended to <strong>never</strong> omit semicolons. It is also recommended
+that braces be kept on the same line as their corresponding statements and to
+never omit them for single-line <code>if</code> / <code>else</code> statements. These measures will
+not only improve the consistency of the code, but they will also prevent the
+JavaScript parser from changing code behavior.</p></div></article><article id="core.delete"><h2>The <code>delete</code> Operator</h2><div><p>In short, it&#39;s <em>impossible</em> to delete global variables, functions and some other
 stuff in JavaScript which have a <code>DontDelete</code> attribute set.</p>
 
 </div><div><h3>Global code and Function code</h3>
 
-<p>When a variable or a function is defined in a global 
-or a <a href="#function.scopes">function scope</a> it is a property of either 
-Activation object or Global object. Such properties have a set of attributes, 
-one of these is <code>DontDelete</code>. Variable and function declarations in global 
-and function code always create properties with <code>DontDelete</code>, therefore 
-cannot be deleted.</p>
+<p>When a variable or a function is defined in a global or a <a href="#function.scopes">function
+scope</a> it is a property of either the Activation object or
+the Global object. Such properties have a set of attributes, one of which is
+<code>DontDelete</code>. Variable and function declarations in global and function code
+always create properties with <code>DontDelete</code>, and therefore cannot be deleted.</p>
 
 <pre><code>// global variable:
 var a = 1; // DontDelete is set
@@ -1742,8 +1741,7 @@ f; // 1
 
 </div><div><h3>Explicit properties</h3>
 
-<p>There are things which can be deleted normally: these are explicitly set 
-properties.</p>
+<p>Explicitly set properties can be deleted normally.</p>
 
 <pre><code>// explicitly set property:
 var obj = {x: 1};
@@ -1754,8 +1752,8 @@ obj.x; // undefined
 obj.y; // undefined
 </code></pre>
 
-<p>In the example above <code>obj.x</code> and <code>obj.y</code> can be deleted because they have no 
-<code>DontDelete</code> atribute. That&#39;s why an example below works too.</p>
+<p>In the example above, <code>obj.x</code> and <code>obj.y</code> can be deleted because they have no 
+<code>DontDelete</code> atribute. That&#39;s why the example below works too.</p>
 
 <pre><code>// this works fine, except for IE:
 var GLOBAL_OBJECT = this;
@@ -1773,7 +1771,7 @@ which allows us to delete it.</p>
 
 </div><div><h3>Function arguments and built-ins</h3>
 
-<p>Functions&#39; normal arguments, <a href="#function.arguments"><code>arguments</code> object</a> 
+<p>Functions&#39; normal arguments, <a href="#function.arguments"><code>arguments</code> objects</a> 
 and built-in properties also have <code>DontDelete</code> set.</p>
 
 <pre><code>// function arguments and properties:
@@ -1794,14 +1792,14 @@ and built-in properties also have <code>DontDelete</code> set.</p>
 
 </div><div><h3>Host objects</h3>
 
-<p>Behaviour of <code>delete</code> operator can be unpredictable for hosted objects. Due to 
-specification, host objects are allowed to implement any kind of behavior. </p>
+<p>The behaviour of <code>delete</code> operator can be unpredictable for hosted objects. Due
+to the specification, host objects are allowed to implement any kind of behavior. </p>
 
 </div><div><h3>In conclusion</h3>
 
-<p><code>delete</code> operator often has an unexpected behaviour and can be safely used 
-only for dealing with explicitly set properties on normal objects.</p></div></article></section><section id="other"><!-- Introduction--><header id="other.intro"><h1>Other</h1></header><!-- Articles--><article id="other.timeouts"><h2><code>setTimeout</code> and <code>setInterval</code></h2><div><p>Since JavaScript is asynchronous, it is possible to schedule the execution of a 
-function by using the <code>setTimeout</code> and <code>setInterval</code> functions.</p>
+<p>The <code>delete</code> operator often has unexpected behaviour and can only be safely
+used to delete explicitly set properties on normal objects.</p></div></article></section><section id="other"><!-- Introduction--><header id="other.intro"><h1>Other</h1></header><!-- Articles--><article id="other.timeouts"><h2><code>setTimeout</code> and <code>setInterval</code></h2><div><p>Since JavaScript is asynchronous, it is possible to schedule the execution of a 
+function using the <code>setTimeout</code> and <code>setInterval</code> functions.</p>
 
 <aside>
   <p><strong>Note:</strong> Timeouts are <strong>not</strong> part of the ECMAScript Standard. They are
@@ -1812,18 +1810,18 @@ function by using the <code>setTimeout</code> and <code>setInterval</code> funct
 var id = setTimeout(foo, 1000); // returns a Number &gt; 0
 </code></pre>
 
-<p>When <code>setTimeout</code> gets called, it will return the ID of the timeout and schedule
-<code>foo</code> to run in <strong>approximately</strong> one thousand milliseconds in the future. 
-<code>foo</code> will then get executed exactly <strong>once</strong>.</p>
+<p>When <code>setTimeout</code> is called, it returns the ID of the timeout and schedule
+<code>foo</code> to run <strong>approximately</strong> one thousand milliseconds in the future. 
+<code>foo</code> will then be executed <strong>once</strong>.</p>
 
-<p>Depending on the timer resolution of the JavaScript engine that is running the 
-code, as well as the fact that JavaScript is single threaded and other code that 
-gets executed might block the thread, it is by <strong>no means</strong> a safe bet that one 
-will get the exact delay that was specified in the <code>setTimeout</code> call.</p>
+<p>Depending on the timer resolution of the JavaScript engine running the code, as
+well as the fact that JavaScript is single threaded and other code that gets
+executed might block the thread, it is by <strong>no means</strong> a safe bet that one will
+get the exact delay specified in the <code>setTimeout</code> call.</p>
 
 <p>The function that was passed as the first parameter will get called by the
 <em>global object</em>, which means that <a href="#function.this"><code>this</code></a> inside the called function 
-refers to that very object.</p>
+refers to the global object.</p>
 
 <pre><code>function Foo() {
     this.value = 42;
@@ -1838,7 +1836,7 @@ new Foo();
 
 <aside>
   <p><strong>Note:</strong> As <code>setTimeout</code> takes a <strong>function object</strong> as its first parameter, an
-  often made mistake is to use <code>setTimeout(foo(), 1000)</code>, which will use the 
+  common mistake is to use <code>setTimeout(foo(), 1000)</code>, which will use the 
   <strong>return value</strong> of the call <code>foo</code> and <strong>not</strong> <code>foo</code>. This is, most of the time, 
   a silent error, since when the function returns <code>undefined</code> <code>setTimeout</code> will 
   <strong>not</strong> raise any error.</p>
@@ -1879,22 +1877,22 @@ foo();
 </code></pre>
 
 <p>Not only does this encapsulate the <code>setTimeout</code> call, but it also prevents the
-stacking of calls and it gives additional control. <code>foo</code> itself can now decide 
+stacking of calls and gives additional control. <code>foo</code> itself can now decide 
 whether it wants to run again or not.</p>
 
 </div><div><h3>Manually Clearing Timeouts</h3>
 
 <p>Clearing timeouts and intervals works by passing the respective ID to
-<code>clearTimeout</code> or <code>clearInterval</code>, depending which <code>set</code> function was used in
-the first place.</p>
+<code>clearTimeout</code> or <code>clearInterval</code>, depending on which <code>set</code> function was used
+in the first place.</p>
 
 <pre><code>var id = setTimeout(foo, 1000);
 clearTimeout(id);
 </code></pre>
 
-</div><div><h3>Clearing all timeouts</h3>
+</div><div><h3>Clearing All Timeouts</h3>
 
-<p>Because there is no built-in method for clearing all timeouts and/or intervals, 
+<p>As there is no built-in method for clearing all timeouts and/or intervals, 
 it is necessary to use brute force in order to achieve this functionality.</p>
 
 <pre><code>// clear "all" timeouts
@@ -1903,7 +1901,9 @@ for(var i = 1; i &lt; 1000; i++) {
 }
 </code></pre>
 
-<p>But there might still be timeouts that are unaffected by this arbitrary number. Another way of doing this is to consider that the ID given to a timeout is incremented by one everytime you call <code>setTimeout</code>.</p>
+<p>But there might still be timeouts that are unaffected by this arbitrary number.
+Another way of doing this is to consider that the ID given to a timeout is
+incremented by one every time you call <code>setTimeout</code>.</p>
 
 <pre><code>// clear "all" timeouts
 var biggestTimeoutId = window.setTimeout(function(){}, 1),
@@ -1913,10 +1913,12 @@ for(i = 1; i &lt;= biggestTimeoutId; i++) {
 }
 </code></pre>
 
-<p>But even though this works on all main browsers nowadays, it isn&#39;t specified that the IDs should be ordered that way and it may change. Therefore, it is instead recommended to keep track of all the timeout IDs, so
-they can be cleared specifically.</p>
+<p>Even though this works on all major browsers today, it isn&#39;t specified that
+the IDs should be ordered that way and it may change. Therefore, it is instead
+recommended to keep track of all the timeout IDs, so they can be cleared
+specifically.</p>
 
-</div><div><h3>Hidden use of <code>eval</code></h3>
+</div><div><h3>Hidden Use of <code>eval</code></h3>
 
 <p><code>setTimeout</code> and <code>setInterval</code> can also take a string as their first parameter.
 This feature should <strong>never</strong> be used because it internally makes use of <code>eval</code>.</p>
@@ -1924,7 +1926,7 @@ This feature should <strong>never</strong> be used because it internally makes u
 <aside>
   <p><strong>Note:</strong> Since the timeout functions are <strong>not</strong> specified by the ECMAScript
   standard, the exact workings when a string is passed to them might differ in
-  various JavaScript implementations. For example, Microsoft&#39;s JScript makes use of
+  various JavaScript implementations. For example, Microsoft&#39;s JScript uses
   the <code>Function</code> constructor in place of <code>eval</code>.</p>
 </aside>
 
@@ -1942,10 +1944,10 @@ bar();
 </code></pre>
 
 <p>Since <code>eval</code> is not getting called <a href="#core.eval">directly</a> in this case, the string 
-passed to <code>setTimeout</code> will get executed in the <em>global scope</em>; thus, it will 
+passed to <code>setTimeout</code> will be executed in the <em>global scope</em>; thus, it will 
 not use the local variable <code>foo</code> from the scope of <code>bar</code>.</p>
 
-<p>It is further recommended to <strong>not</strong> use a string for passing arguments to the
+<p>It is further recommended to <strong>not</strong> use a string to pass arguments to the
 function that will get called by either of the timeout functions. </p>
 
 <pre><code>function foo(a, b, c) {}
@@ -1967,7 +1969,7 @@ setTimeout(function() {
 
 </div><div><h3>In Conclusion</h3>
 
-<p><strong>Never</strong> should a string be used as the parameter of <code>setTimeout</code> or 
+<p>A string should <strong>never</strong> be used as the parameter of <code>setTimeout</code> or 
 <code>setInterval</code>. It is a clear sign of <strong>really</strong> bad code, when arguments need 
 to be supplied to the function that gets called. An <em>anonymous function</em> should
 be passed that then takes care of the actual call.</p>
