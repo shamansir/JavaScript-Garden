@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><title>JavaScript Garden</title><meta charset="utf-8"><meta name="description" content="A Guide to JavaScript's Quirks and Flaws."><link rel="stylesheet" href="style/garden.css" media="all"><link rel="stylesheet" href="style/print.css" media="print"><!--[if lt IE 9]>
+<!DOCTYPE html><html lang="en"><head><title>JavaScript Garden</title><meta charset="utf-8"><meta name="description" content="A Guide to JavaScript's Quirks and Flaws."><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="style/garden.css" media="all"><link rel="stylesheet" href="style/print.css" media="print"><!--[if lt IE 9]>
 <script src="javascript/html5.js"></script>
 <![endif]-->
 </head><body><!-- Navigation--><nav id="nav_main"><div><ul><li class="active"><a href="/JavaScript-Garden/" title="JavaScript Garden in English">en</a></li><li><a href="/JavaScript-Garden/es" title="JavaScript Garden es Español">es</a></li><li><a href="/JavaScript-Garden/fi" title="JavaScript-puutarha suomeksi">fi</a></li><li><a href="/JavaScript-Garden/ja" title="JavaScript Garden in Japanese">ja</a></li><li><a href="/JavaScript-Garden/ko" title="JavaScript Garden">ko</a></li><li><a href="/JavaScript-Garden/pl" title="JavaScript Garden - ogród JavaScript po polsku">pl</a></li><li><a href="/JavaScript-Garden/ru" title="JavaScript Гарден по-русски">ru</a></li><li><a href="/JavaScript-Garden/tr" title="JavaScript Garden Türkçe">tr</a></li><li><a href="/JavaScript-Garden/zh" title="JavaScript Garden 中文翻译">zh</a></li><li><a href="/JavaScript-Garden/zhtw" title="JavaScript Garden 繁體中文翻譯">zhtw</a></li></ul><a id="top" href="#intro" title="Back to top">#top</a><a id="hide_menu" class="tablet">Hide Menu</a></div><ul><li class="nav_intro"><h1><a href="#intro">Intro</a></h1><ul></ul></li><li class="nav_object"><h1><a href="#object">Objects</a></h1><ul><li><a href="#object.general">Object Usage and Properties</a></li><li><a href="#object.prototype">The Prototype</a></li><li><a href="#object.hasownproperty"><code>hasOwnProperty</code></a></li><li><a href="#object.forinloop">The <code>for in</code> Loop</a></li></ul></li><li class="nav_function"><h1><a href="#function">Functions</a></h1><ul><li><a href="#function.general">Function Declarations and Expressions</a></li><li><a href="#function.this">How <code>this</code> Works</a></li><li><a href="#function.closures">Closures and References</a></li><li><a href="#function.arguments">The <code>arguments</code> Object</a></li><li><a href="#function.constructors">Constructors</a></li><li><a href="#function.scopes">Scopes and Namespaces</a></li></ul></li><li class="nav_array"><h1><a href="#array">Arrays</a></h1><ul><li><a href="#array.general">Array Iteration and Properties</a></li><li><a href="#array.constructor">The <code>Array</code> Constructor</a></li></ul></li><li class="nav_types"><h1><a href="#types">Types</a></h1><ul><li><a href="#types.equality">Equality and Comparisons</a></li><li><a href="#types.typeof">The <code>typeof</code> Operator</a></li><li><a href="#types.instanceof">The <code>instanceof</code> Operator</a></li><li><a href="#types.casting">Type Casting</a></li></ul></li><li class="nav_core"><h1><a href="#core">Core</a></h1><ul><li><a href="#core.eval">Why Not to Use <code>eval</code></a></li><li><a href="#core.undefined"><code>undefined</code> and <code>null</code></a></li><li><a href="#core.semicolon">Automatic Semicolon Insertion</a></li><li><a href="#core.delete">The <code>delete</code> Operator</a></li></ul></li><li class="nav_other"><h1><a href="#other">Other</a></h1><ul><li><a href="#other.timeouts"><code>setTimeout</code> and <code>setInterval</code></a></li></ul></li></ul></nav><!-- Mobile navigation--><nav id="nav_mobile"><a id="nav_prev_section" href="#">prev section<span class="nav_section_name">section name</span></a><a id="nav_next_section" href="#">next section<span class="nav_section_name">section name</span></a><a id="show_menu">show menu</a></nav><!-- Sections--><section id="intro"><!-- Introduction--><header id="intro.intro"><h1>Intro</h1><div><p><strong>JavaScript Garden</strong> is a growing collection of documentation about the most 
@@ -134,25 +134,25 @@ a <code>SyntaxError</code> prior to ECMAScript 5.</p>
 
 <p>This error arises from the fact that <code>delete</code> is a <em>keyword</em>; therefore, it must be 
 notated as a <em>string literal</em> to ensure that it will be correctly interpreted by
-older JavaScript engines.</p></div></article><article id="object.prototype"><h2>The Prototype</h2><div><p>JavaScript does not feature a classical inheritance model; instead, it uses a 
-<em>prototypal</em> one. </p>
+older JavaScript engines.</p></div></article><article id="object.prototype"><h2>The Prototype</h2><div><p>JavaScript does not feature a classical inheritance model; instead, it uses a
+<em>prototypal</em> one.</p>
 
-<p>While this is often considered to be one of JavaScript&#39;s weaknesses, the 
+<p>While this is often considered to be one of JavaScript&#39;s weaknesses, the
 prototypal inheritance model is in fact more powerful than the classic model.
 It is, for example, fairly trivial to build a classic model on top of a
 prototypal model, while the other way around is a far more difficult task.</p>
 
 <p>JavaScript is the only widely used language that features prototypal
 inheritance, so it can take time to adjust to the differences between the two
-models. </p>
+models.</p>
 
 <p>The first major difference is that inheritance in JavaScript uses <em>prototype
 chains</em>.</p>
 
 <aside>
   <p><strong>Note:</strong> Simply using <code>Bar.prototype = Foo.prototype</code> will result in both objects
-  sharing the <strong>same</strong> prototype. Therefore, changes to either object&#39;s prototype 
-  will affect the prototype of the other as well, which in most cases is not the 
+  sharing the <strong>same</strong> prototype. Therefore, changes to either object&#39;s prototype
+  will affect the prototype of the other as well, which in most cases is not the
   desired effect.</p>
 </aside>
 
@@ -172,11 +172,11 @@ Bar.prototype.foo = &#39;Hello World&#39;;
 // Make sure to list Bar as the actual constructor
 Bar.prototype.constructor = Bar;
 
-var test = new Bar() // create a new bar instance
+var test = new Bar(); // create a new bar instance
 
 // The resulting prototype chain
 test [instance of Bar]
-    Bar.prototype [instance of Foo] 
+    Bar.prototype [instance of Foo]
         { foo: &#39;Hello World&#39; }
         Foo.prototype
             { method: ... }
@@ -185,15 +185,15 @@ test [instance of Bar]
 </code></pre>
 
 <p>In the code above, the object <code>test</code> will inherit from both <code>Bar.prototype</code> and
-<code>Foo.prototype</code>; hence, it will have access to the function <code>method</code> that was 
+<code>Foo.prototype</code>; hence, it will have access to the function <code>method</code> that was
 defined on <code>Foo</code>. It will also have access to the property <code>value</code> of the
 <strong>one</strong> <code>Foo</code> instance that is its prototype. It is important to note that <code>new
-Bar()</code> does <strong>not</strong> create a new <code>Foo</code> instance, but reuses the one assigned to 
+Bar()</code> does <strong>not</strong> create a new <code>Foo</code> instance, but reuses the one assigned to
 its prototype; thus, all <code>Bar</code> instances will share the <strong>same</strong> <code>value</code> property.</p>
 
 <aside>
-  <p><strong>Note:</strong> Do <strong>not</strong> use <code>Bar.prototype = Foo</code>, since it will not point to 
-  the prototype of <code>Foo</code> but rather to the function object <code>Foo</code>. So the 
+  <p><strong>Note:</strong> Do <strong>not</strong> use <code>Bar.prototype = Foo</code>, since it will not point to
+  the prototype of <code>Foo</code> but rather to the function object <code>Foo</code>. So the
   prototype chain will go over <code>Function.prototype</code> and not <code>Foo.prototype</code>;
   therefore, <code>method</code> will not be on the prototype chain.</p>
 </aside>
@@ -210,7 +210,7 @@ hasn&#39;t found the specified property, it will return the value
 </div><div><h3>The Prototype Property</h3>
 
 <p>While the prototype property is used by the language to build the prototype
-chains, it is still possible to assign <strong>any</strong> given value to it. However, 
+chains, it is still possible to assign <strong>any</strong> given value to it. However,
 primitives will simply get ignored when assigned as a prototype.</p>
 
 <pre><code>function Foo() {}
@@ -225,9 +225,9 @@ creation of prototype chains.</p>
 <p>The lookup time for properties that are high up on the prototype chain can have
 a negative impact on performance, and this may be significant in code where
 performance is critical. Additionally, trying to access non-existent properties
-will always traverse the full prototype chain. </p>
+will always traverse the full prototype chain.</p>
 
-<p>Also, when <a href="#object.forinloop">iterating</a> over the properties of an object 
+<p>Also, when <a href="#object.forinloop">iterating</a> over the properties of an object
 <strong>every</strong> property that is on the prototype chain will be enumerated.</p>
 
 </div><div><h3>Extension of Native Prototypes</h3>
@@ -235,12 +235,12 @@ will always traverse the full prototype chain. </p>
 <p>One mis-feature that is often used is to extend <code>Object.prototype</code> or one of the
 other built in prototypes.</p>
 
-<p>This technique is called <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey patching</a> and breaks <em>encapsulation</em>. While 
-used by popular frameworks such as <a href="http://prototypejs.org/">Prototype</a>, there is still no good 
+<p>This technique is called <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey patching</a> and breaks <em>encapsulation</em>. While
+used by popular frameworks such as <a href="http://prototypejs.org/">Prototype</a>, there is still no good
 reason for cluttering built-in types with additional <em>non-standard</em> functionality.</p>
 
-<p>The <strong>only</strong> good reason for extending a built-in prototype is to backport 
-the features of newer JavaScript engines; for example, 
+<p>The <strong>only</strong> good reason for extending a built-in prototype is to backport
+the features of newer JavaScript engines; for example,
 <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/forEach"><code>Array.forEach</code></a>.</p>
 
 </div><div><h3>In Conclusion</h3>
@@ -256,15 +256,15 @@ on its <a href="#object.prototype">prototype chain</a>, it is necessary to use t
 
 <aside>
   <p><strong>Note:</strong> It is <strong>not</strong> enough to check whether a property is <code>undefined</code>. The
-  property might very well exist, but its value just happens to be set to 
+  property might very well exist, but its value just happens to be set to
   <code>undefined</code>.</p>
 </aside>
 
-<p><code>hasOwnProperty</code> is the only thing in JavaScript which deals with properties and 
+<p><code>hasOwnProperty</code> is the only thing in JavaScript which deals with properties and
 does <strong>not</strong> traverse the prototype chain.</p>
 
 <pre><code>// Poisoning Object.prototype
-Object.prototype.bar = 1; 
+Object.prototype.bar = 1;
 var foo = {goo: undefined};
 
 foo.bar; // 1
@@ -274,10 +274,10 @@ foo.hasOwnProperty(&#39;bar&#39;); // false
 foo.hasOwnProperty(&#39;goo&#39;); // true
 </code></pre>
 
-<p>Only <code>hasOwnProperty</code> will give the correct and expected result; this is 
-essential when iterating over the properties of any object. There is <strong>no</strong> other 
-way to exclude properties that are not defined on the object itself, but 
-somewhere on its prototype chain.  </p>
+<p>Only <code>hasOwnProperty</code> will give the correct and expected result; this is
+essential when iterating over the properties of any object. There is <strong>no</strong> other
+way to exclude properties that are not defined on the object itself, but
+somewhere on its prototype chain.</p>
 
 </div><div><h3><code>hasOwnProperty</code> as a Property</h3>
 
@@ -298,7 +298,7 @@ foo.hasOwnProperty(&#39;bar&#39;); // always returns false
 ({}).hasOwnProperty.call(foo, &#39;bar&#39;); // true
 
 // It&#39;s also possible to use the hasOwnProperty property from the Object property for this purpose
-Object.prototype.hasOwnProperty.call(obj, &#39;bar&#39;); // true
+Object.prototype.hasOwnProperty.call(foo, &#39;bar&#39;); // true
 </code></pre>
 
 </div><div><h3>In Conclusion</h3>
